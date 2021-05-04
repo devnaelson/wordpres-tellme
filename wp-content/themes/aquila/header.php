@@ -24,6 +24,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="<?php echo wp_upload_dir("2021/04")['url']."/Time-Share.jpeg"; ?>">
+    <?php wp_head(); ?>
 </head>
 
 <body>

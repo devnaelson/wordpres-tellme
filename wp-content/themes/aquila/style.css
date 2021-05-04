@@ -9,3 +9,7 @@
  * @subpackage Aquila
  * @since Twenty Twenty one
  */
+*{
+    margin: 0 0 0;
+    background-color: red;
+}

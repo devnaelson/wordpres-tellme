@@ -45,3 +45,11 @@ function wpb_custom_new_menu()
 }
 add_action('init', 'wpb_custom_new_menu');
 */
+
+/**
+ * Proper way to enqueue scripts and styles
+ */
+function wpdocs_theme_name_scripts() {
+    wp_enqueue_style( 'GlobalStyle', get_stylesheet_uri(), wp_get_theme()->get( 'Version' ) );
+}
+add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
