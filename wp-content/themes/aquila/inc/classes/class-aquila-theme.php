@@ -19,6 +19,7 @@ namespace AQUILA_THEME\Inc;
 
 use AQUILA_THEME\Inc\Traits\Singleton;
 
+
 class AQUILA_THEME
 {
 	use Singleton;
@@ -28,6 +29,7 @@ class AQUILA_THEME
 
 		// load class.
 		Assets::get_instance();
+		Menu::get_instance();
 		$this->set_hooks();
 	}
 
@@ -39,6 +41,12 @@ class AQUILA_THEME
 
 	public function setup_theme()
 	{
+
+		wp_nav_menu(array(
+			'theme_location' => 'my-custom-menu',
+			'container_class' => 'custom-menu-class'
+		));
+
 		add_theme_support('title-tag');
 		$defaults = array(
 			'height'               => 100,
@@ -66,5 +74,6 @@ class AQUILA_THEME
 		add_editor_style();
 		add_theme_support('wp-block-styles');
 		add_theme_support('align-wide');
+
 	}
 }

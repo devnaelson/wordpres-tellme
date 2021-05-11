@@ -15,22 +15,6 @@
  * @since Twenty Twenty one
  */
 
-
-
-/*
-function wpb_custom_new_menu()
-{
-    register_nav_menus(
-        array(
-            'my-custom-menu' => __('My Custom Menu'),
-            'extra-menu' => __('Extra Menu')
-        )
-    );
-}
-add_action('init', 'wpb_custom_new_menu');
-*/
-
-
 if (!defined('AQUILA_DIR_PATH')) {
     define('AQUILA_DIR_PATH', untrailingslashit(get_template_directory()));
 }
