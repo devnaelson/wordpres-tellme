@@ -46,10 +46,15 @@ function wpb_custom_new_menu()
 add_action('init', 'wpb_custom_new_menu');
 */
 
-/**
- * Proper way to enqueue scripts and styles
- */
-function wpdocs_theme_name_scripts() {
-    wp_enqueue_style( 'GlobalStyle', get_stylesheet_uri(), wp_get_theme()->get( 'Version' ) );
+
+if ( ! defined( 'AQUILA_DIR_PATH' ) ) {
+	define( 'AQUILA_DIR_PATH', untrailingslashit( get_template_directory() ) );
 }
-add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
+
+require_once AQUILA_DIR_PATH . '/inc/helpers/autoloader.php';
+
+function aquila_get_theme_instance() {
+	\AQUILA_THEME\Inc\AQUILA_THEME::get_instance();
+}
+
+aquila_get_theme_instance();
