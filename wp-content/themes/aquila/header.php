@@ -27,12 +27,12 @@
     <?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
 
     <div>
         <header id="masthead" class="site-header" role="banner">
-        <?php get_template_part('template-parts/header/nav'); ?>
+            <?php get_template_part('template-parts/header/nav'); ?>
         </header>
     </div>
     <?php

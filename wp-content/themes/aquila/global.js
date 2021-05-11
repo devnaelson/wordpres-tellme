@@ -1,1 +1,1 @@
-alert("asasas")
+console.log("JS ACTIVE");
