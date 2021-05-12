@@ -47,4 +47,11 @@ class Menu
 			]
 		);
 	}
+
+	public function get_menu_id($location)
+	{
+		$locations = get_nav_menu_locations();
+
+		print_r($locations);
+	}
 }

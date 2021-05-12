@@ -31,11 +31,12 @@ class Assets
      */
     public function register_scripts()
     {
-        wp_enqueue_script('GlobalScripts', get_template_directory_uri() . '/global.js', wp_get_theme()->get('Version'));
+        wp_enqueue_script('GlobalScripts', get_template_directory_uri() . '/assets/js/global.js', wp_get_theme()->get('Version'));
     }
 
     public function register_styles()
     {
-        wp_enqueue_style('GlobalStyles', get_stylesheet_uri(), wp_get_theme()->get('Version'));
+        //wp_enqueue_style('GlobalStyles', get_stylesheet_uri(), wp_get_theme()->get('Version'));
+        wp_enqueue_style('GlobalStyles', get_template_directory_uri() . '/assets/css/style.css', wp_get_theme()->get('Version'));
     }
 };
