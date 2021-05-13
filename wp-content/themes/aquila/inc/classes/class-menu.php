@@ -1,14 +1,5 @@
 <?php
 /*
-	login users
-	make pages and posts
-	add media
-	create a blog
-	let users reply
-	delete content
-	add categories and tags
-	add widgets
-	embed a video.
 
  * Bootstraps the Theme.
  *
@@ -43,7 +34,7 @@ class Menu
 		register_nav_menus(
 			[
 				'naelson-header-menu' => esc_html__('Header Menu', 'aquila'),
-				'naelson-footer-menu' => esc_html__('Header Fooder', 'aquila')
+				'naelson-footer-menu' => esc_html__('Page Footer', 'aquila')
 			]
 		);
 	}
@@ -53,5 +44,9 @@ class Menu
 		$locations = get_nav_menu_locations();
 
 		print_r($locations);
+
+		// echo "<pre>";
+		// print_r(wp_get_nav_menu_items(3));
+		// echo "</pre>";
 	}
 }

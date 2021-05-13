@@ -42,11 +42,6 @@ class AQUILA_THEME
 	public function setup_theme()
 	{
 
-		wp_nav_menu(array(
-			'theme_location' => 'my-custom-menu',
-			'container_class' => 'custom-menu-class'
-		));
-
 		add_theme_support('title-tag');
 		$defaults = array(
 			'height'               => 100,
@@ -58,14 +53,15 @@ class AQUILA_THEME
 		);
 		add_theme_support('custom-logo', $defaults);
 
-		$another_args = array(
-			'default-color'      => '0000ff',
-			//'default-image'      => get_template_directory_uri() . '/images/wapuu.jpg',
-			'default-position-x' => 'right',
-			'default-position-y' => 'top',
-			'default-repeat'     => 'no-repeat',
-		);
-		add_theme_support('custom-background', $another_args);
+		// $another_args = array(
+		// 	'default-color'      => '0000ff',
+		// 	//'default-image'      => get_template_directory_uri() . '/images/wapuu.jpg',
+		// 	'default-position-x' => 'right',
+		// 	'default-position-y' => 'top',
+		// 	'default-repeat'     => 'no-repeat',
+		// );
+		// add_theme_support('custom-background', $another_args);
+
 
 		//https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails
 		add_theme_support('post-thumbnails');
