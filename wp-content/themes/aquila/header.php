@@ -35,9 +35,21 @@
             <?php get_template_part('template-parts/header/nav'); ?>
         </header>
     </div>
+
     <?php
+    
+    if (have_posts()) :
+        while (have_posts()) : the_post();
+        single_post_title();
+            the_content();
+        endwhile;
+    else :
+        _e('Sorry, no posts matched your criteria.', 'textdomain');
+    endif;
 
+    ?>
 
+    <?php
     if (function_exists('the_custom_logo')) {
         the_custom_logo();
         the_title();
