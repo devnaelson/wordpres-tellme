@@ -25,6 +25,3 @@ get_header();
     echo "</pre>";
     ?>
 </div>
-<?php
-get_footer();
-?>

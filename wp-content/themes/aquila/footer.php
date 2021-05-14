@@ -16,7 +16,9 @@
  */
 
 ?>
-
+<?php
+get_footer();
+?>
 <footer>Footer</footer>
 </body>
 
