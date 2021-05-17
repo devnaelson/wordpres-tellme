@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The main template file
  *
@@ -14,14 +13,15 @@
  * @subpackage Aquila
  * @since Twenty Twenty one
  */
-get_header();
+    get_header();
 ?>
+
+
 <div class="content">
     My content
-
-    <?php 
-    echo "<pre>";
-    print_r(wp_upload_dir("2021/04"));
-    echo "</pre>";
-    ?>
 </div>
+
+
+<?php
+    get_footer();
+?>
