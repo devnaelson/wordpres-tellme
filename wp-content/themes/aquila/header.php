@@ -47,6 +47,8 @@
     
 	// Title, enable, disable box in post
     // hooks in aquila theme
+    // add _hide_page_title postmeta
+
 	if ( is_single() || is_page() ) {
 		printf(
 			'<h1 class="page-title text-dark %1$s">%2$s</h1>',
