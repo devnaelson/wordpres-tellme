@@ -67,29 +67,29 @@ function menu_unsub_page_callback()
 function config_submenu_page_callback()
 {
     require_once 'header.php';
-    $error =  true;
-    if (isset($_GET['create_post']) == true and $_GET['create_post'] == true) {
-    } else {
-
-    }
-    
+    $error = null;
+    $error = (isset($_GET['create_post']) == true and $_GET['create_post'] == true) ? require 'inc/set-configs.php' : 0 ;
+    if (!$error == 0 || $error == null) {
 ?>
-    <div class="container">
-        <div class="row text-center">
-            <div class="col p-5">
-                <div class="alert alert-info" role="alert">
-                    Criar posts
+        <div class="container">
+            <div class="row text-center">
+                <div class="col p-5">
+                    <div class="alert alert-info" role="alert">
+                        Criar posts
+                    </div>
+                    <p><a class="btn btn-primary" href="<?php echo esc_url(add_query_arg(array('create_post' => true))); ?>" role="button">ACTION</a></p>
                 </div>
-                <p><a class="btn btn-primary" href="<?php echo esc_url(add_query_arg(array('create_post' => true))); ?>" role="button">ACTION</a></p>
-            </div>
-            <div class="col p-5">
-                NONE
-            </div>
-            <div class="col p-5">
-                NONE
+                <div class="col p-5">
+                    NONE
+                </div>
+                <div class="col p-5">
+                    NONE
+                </div>
             </div>
         </div>
-    </div>
 <?php
+    } else {
+        require_once '404.php';
+    }
     require_once 'footer.php';
 }
