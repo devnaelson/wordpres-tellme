@@ -42,8 +42,7 @@ function config_submenu_page_callback()
 
     $error = null;
     $error = (isset($_GET['create_post']) == true and $_GET['create_post'] == true) ? require 'inc/set-configs.php' : 0;
-    if (!$error == 0 || $error == null) {
-
+    if (!$error == 0 || $error == null) { 
         $post_porcent = (get_page_by_title("spreadsheet_req") != NULL) ? 100 : 0;
 
 ?>
