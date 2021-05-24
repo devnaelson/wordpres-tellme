@@ -15,36 +15,7 @@
  * Domain Path:       /languages
  */
 
-// Hook for adding admin menus
-add_action('admin_menu', 'menu_unsub_add_pages');
-
-// action function for above hook
-
-/**
- * Adds a new top-level page to the administration menu.
- */
-function menu_unsub_add_pages()
-{
-    add_menu_page(
-        __('Planilhas', 'textdomain'),
-        __('Planilhas', 'textdomain'),
-        'manage_options',
-        'planilha',
-        'menu_unsub_page_callback',
-        '',
-        60
-    );
-
-    add_submenu_page(
-        'planilha',
-        'Config',
-        'Config',
-        'manage_options',
-        'configs',
-        'config_submenu_page_callback',
-    );
-}
-
+require 'inc/hooks.php';
 
 /**
  * Disply callback for the Unsub page.
@@ -68,16 +39,19 @@ function config_submenu_page_callback()
 {
     require_once 'header.php';
     $error = null;
-    $error = (isset($_GET['create_post']) == true and $_GET['create_post'] == true) ? require 'inc/set-configs.php' : 0 ;
+    $error = (isset($_GET['create_post']) == true and $_GET['create_post'] == true) ? require 'inc/set-configs.php' : 0;
     if (!$error == 0 || $error == null) {
+
+        $post_porcent = 0;
+        $post_porcent = (get_page_by_title("spreadsheet_req") != null) ? 100 : 0;
 ?>
         <div class="container">
             <div class="row text-center">
                 <div class="col p-5">
-                    <div class="alert alert-info" role="alert">
-                        Criar posts
+                    <div class="progress m-1" style="height: 32px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="<?php echo 'width: ' . $post_porcent . '%;' ?>" aria-valuenow="<?php echo  $post_porcent ?>" aria-valuemin="0" aria-valuemax="100">creating post <?php echo  $post_porcent ?>%</div>
                     </div>
-                    <p><a class="btn btn-primary" href="<?php echo esc_url(add_query_arg(array('create_post' => true))); ?>" role="button">ACTION</a></p>
+                    <?php if($post_porcent > 100 ){ ?><p><a class="btn btn-primary" href="<?php echo esc_url(add_query_arg(array('create_post' => true))); ?>" role="button">ACTION</a></p> <?php } ?>
                 </div>
                 <div class="col p-5">
                     NONE
