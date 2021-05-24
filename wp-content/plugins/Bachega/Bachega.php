@@ -44,14 +44,15 @@ function config_submenu_page_callback()
 
         $post_porcent = 0;
         $post_porcent = (get_page_by_title("spreadsheet_req") != NULL) ? 100 : 0;
+
 ?>
         <div class="container">
             <div class="row text-center">
                 <div class="col p-5">
                     <div class="progress m-1" style="height: 32px;">
-                        <div class="progress-bar <?php echo ((($post_porcent == 0) ? 'bg-danger': ($post_porcent > 0 and $post_porcent < 100 )) ? 'bg-warning': 'bg-warning');?>" role="progressbar" style="<?php echo 'width: ' . 5 . '%;' ?>" aria-valuenow="<?php echo  $post_porcent ?>" aria-valuemin="0" aria-valuemax="100">creating post <?php echo  $post_porcent ?>%</div>
+                        <div class="progress-bar <?php echo ((($post_porcent == 0) ? 'bg-danger' : ($post_porcent > 0 and $post_porcent < 100)) ? 'bg-warning' : 'bg-warning'); ?>" role="progressbar" style="<?php echo 'width: ' . 5 . '%;' ?>" aria-valuenow="<?php echo  $post_porcent ?>" aria-valuemin="0" aria-valuemax="100">creating post <?php echo  $post_porcent ?>%</div>
                     </div>
-                    <?php if($post_porcent < 100 ){ ?><p><a class="btn btn-primary" href="<?php echo esc_url(add_query_arg(array('create_post' => true))); ?>" role="button">ACTION</a></p> <?php } ?>
+                    <?php if ($post_porcent < 100) { ?><p><a class="btn btn-primary" href="<?php echo esc_url(add_query_arg(array('create_post' => true))); ?>" role="button">ACTION</a></p> <?php } ?>
                 </div>
                 <div class="col p-5">
                     NONE
