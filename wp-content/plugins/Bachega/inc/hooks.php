@@ -1,9 +1,7 @@
-<?php 
+<?php
 
 // Hook for adding admin menus
 add_action('admin_menu', 'menu_unsub_add_pages');
-
-// action function for above hook
 
 /**
  * Adds a new top-level page to the administration menu.
