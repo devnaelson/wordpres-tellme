@@ -29,7 +29,10 @@ function menu_unsub_page_callback()
     require_once 'header.php';
     global $current_user;
 
-    
+    if ( has_nav_menu( 'ngsp-nav-menu-loc' ) ) {
+        wp_nav_menu( array( 'theme_location' => 'ngsp-nav-menu-loc' ) );
+    }
+
     // if (is_user_logged_in()) {
 
     //     echo '<span class="ciao">HELLO ' . $current_user->user_level . '</span>\n';
@@ -48,12 +51,6 @@ function menu_unsub_page_callback()
     //     'menu-item-status' => 'publish',
     //     'menu-item-type' => 'post_type',
     // ));
-    
-
-    // wp_nav_menu([
-    // 'theme_location' => 'ngsp-menu-a',
-    // 'container_class' => 'custom-menu-class'
-    // ]);
     
     require_once 'footer.php';
 }
