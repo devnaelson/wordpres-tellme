@@ -1,16 +1,14 @@
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WordPress
- * @subpackage Aquila
- * @since Twenty Twenty one
- */
- 
-
- *{
-
- }
+.bgbox {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  .box-fields {
+    border: 3px solid #666;
+    background-color: #ddd;
+    border-radius: .5em;
+    padding: 5px;
+    cursor: move;
+    margin: 5px;
+  }
