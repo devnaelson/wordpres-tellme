@@ -16,7 +16,7 @@ function auto_config()
         echo '<div class="alert m-2 alert-success" role="alert">Successfull page ID=' . $flagSheetUpload . '</div>';
     else echo '<div class="alert m-2 alert-danger" role="alert">Error pageID=' . $flagSheetUpload . '</div>';
 
-
+/*
     // Check if the menu exists
     $menu_name   = 'ngsp-menu-a';
     $menu_exists = wp_get_nav_menu_object($menu_name);
@@ -46,6 +46,8 @@ function auto_config()
             'menu-item-type' => 'post_type',
         ));
     }
+    */
 }
+
 
 auto_config();
