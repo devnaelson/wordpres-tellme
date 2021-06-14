@@ -13,14 +13,14 @@ function menu_unsub_add_pages()
         __('Planilhas', 'textdomain'),
         __('Planilhas', 'textdomain'),
         'manage_options',
-        'planilha',
+        'exc-main',
         'menu_unsub_page_callback',
         '',
         60
     );
 
     add_submenu_page(
-        'planilha',
+        'exc-main',
         'Config',
         'Config',
         'manage_options',

@@ -1,6 +1,7 @@
 <?php 
 if ( !defined( 'ABSPATH' ) ) exit;
-require ABSPATH.'wp-content/plugins/Bachega/vendor/autoload.php';
+require RDIR_BACHEGA.'vendor/autoload.php';
+
 use PhpOffice\PhpSpreadsheet\IOFactory;
 class Libaries {
 

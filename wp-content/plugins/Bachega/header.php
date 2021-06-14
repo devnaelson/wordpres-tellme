@@ -29,7 +29,7 @@
   <!-- Bootstrap CSS -->
   <link href="<?php echo URL_BACHEGA . '/Bachega/style.css'; ?>" rel="stylesheet">
 
-  <title>Hello, world!</title>
+  <title>Plugin, Excel!</title>
 </head>
 
 <body <?php body_class(); ?>>
