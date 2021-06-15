@@ -1,7 +1,6 @@
 <?php 
 if ( !defined( 'ABSPATH' ) ) exit;
 require RDIR_BACHEGA.'vendor/autoload.php';
-
 use PhpOffice\PhpSpreadsheet\IOFactory;
 class Libaries {
 
@@ -9,15 +8,6 @@ class Libaries {
     protected $setting = array();
 
     function __construct() {}
-
-    public function activePhpSpreadsheet($active,$type) { 
-        $this->acitve = $active;
-        $this->getActive();
-        $this->LoadPhpSpreadsheet($type);
-    }
-
-    public function getActive() { return $this->acitve; }
-
     /**
      * @package types extension
      * @version .0.1.0
@@ -25,14 +15,21 @@ class Libaries {
      * Xlsx
      * Xls
      */
+    public function activePhpSpreadsheet($active,$type) { 
+        $this->acitve = $active;
+        $this->getActive();
+        $this->LoadPhpSpreadsheet($type);
+    }
+
+    public function getActive() { return $this->acitve; }
     function LoadPhpSpreadsheet($type) {
         if($this->getActive() == true) {
 
             $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($type);
             $reader->setReadDataOnly(true);
-
-            // $spreadsheet = $reader->load(dirname(__FILE__) . "/" . $target_file);
-            // $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+            $spreadsheet = $reader->load(RDIR_BACHEGA.'test.xlsx');
+            $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+            print_r($sheetData);
 
         }
     }

@@ -18,10 +18,11 @@
 define("URL_BACHEGA", plugins_url());
 define("RDIR_BACHEGA", ABSPATH . 'wp-content/plugins/Bachega/');
 
-
 require 'inc/hooks.php';
 require 'inc/Libaries.php';
 
+$excel = new Libaries();
+$excel->activePhpSpreadsheet(false,"Xlsx");
 
 /**
  * Disply callback for the Unsub page.
