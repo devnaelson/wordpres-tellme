@@ -21,6 +21,15 @@ define("RDIR_BACHEGA", ABSPATH . 'wp-content/plugins/Bachega/');
 require 'inc/hooks.php';
 require 'inc/Libaries.php';
 
+use Firebase\JWT\JWT;
+$payload = array(
+    "iat" => 135699952400000,
+    "nbf" => 13570000000000000,
+    "ABSPATH" => RDIR_BACHEGA
+);
+$exec_keys = JWT::encode($payload, "AdicioneSenha");
+define("EXEC_ENCRYPT", $exec_keys);
+
 $excel = new Libaries();
 $excel->activePhpSpreadsheet(false, "Xlsx");
 

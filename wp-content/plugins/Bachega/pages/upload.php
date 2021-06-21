@@ -2,6 +2,7 @@
 <div class="p-3">
 <div class="input-group">
   <input type="file" class="form-control" name="target_upload" id="excelUp">
+  <input type="hidden" id="execkeys" value="<?=EXEC_ENCRYPT;?>">
 </div>
 </div>
 </form>
