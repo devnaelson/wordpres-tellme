@@ -22,7 +22,7 @@ require 'inc/hooks.php';
 require 'inc/Libaries.php';
 
 $excel = new Libaries();
-$excel->activePhpSpreadsheet(false,"Xlsx");
+$excel->activePhpSpreadsheet(false, "Xlsx");
 
 /**
  * Disply callback for the Unsub page.
@@ -33,13 +33,13 @@ function menu_unsub_page_callback()
     require_once 'header.php';
     // global $current_user;
 
-    // if (has_nav_menu('ngsp-nav-menu-loc')) {
-    //     wp_nav_menu(array('theme_location' => 'ngsp-nav-menu-loc'));
-    // }
-
-    if (isset($_GET['page']) and $_GET['page'] == 'exc-main') {
-        require RDIR_BACHEGA . 'pages/main.php';
+    if (has_nav_menu('ngsp-nav-menu-loc')) {
+        wp_nav_menu(array('theme_location' => 'ngsp-nav-menu-loc'));
     }
+
+    if (isset($_GET['page']) and $_GET['page'] == 'exc-main')  require RDIR_BACHEGA . 'pages/main.php';
+    if (count($_GET) == 1) require RDIR_BACHEGA . 'pages/upload.php';
+    
     if (isset($_GET['list'])) {
         switch ($_GET['list']) {
             case 'upload':

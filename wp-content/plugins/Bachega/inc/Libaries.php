@@ -2,6 +2,7 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 require RDIR_BACHEGA.'vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
+
 class Libaries {
 
     protected $acitve = false;
@@ -24,7 +25,6 @@ class Libaries {
     public function getActive() { return $this->acitve; }
     function LoadPhpSpreadsheet($type) {
         if($this->getActive() == true) {
-
             $reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($type);
             $reader->setReadDataOnly(true);
             $spreadsheet = $reader->load(RDIR_BACHEGA.'test.xlsx');
