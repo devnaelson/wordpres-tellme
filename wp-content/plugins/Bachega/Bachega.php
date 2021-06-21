@@ -15,7 +15,7 @@
  * Domain Path:       /languages
  */
 
-define("URL_BACHEGA", plugins_url());
+define("URL_BACHEGA", plugins_url().'/Bachega');
 define("RDIR_BACHEGA", ABSPATH . 'wp-content/plugins/Bachega/');
 
 require 'inc/hooks.php';
@@ -47,6 +47,9 @@ function menu_unsub_page_callback()
                 break;
             case 'download':
                 require RDIR_BACHEGA . 'pages/download.php';
+                break;
+                case 'ajax':
+                require RDIR_BACHEGA . 'pages/ajax.php';
                 break;
             default:
                 require_once '404.php';

@@ -2,9 +2,26 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const page_type = urlParams.get('list');
 
+var ajax = {
+  upload: false,
+}
+
 switch(page_type){
     case 'upload':
+      ajax.upload = true;
     break;
+}
+
+if(ajax.upload == true) {
+  const xhrSend = new XMLHttpRequest();
+  xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/pages/ajax.php');
+  xhrSend.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhrSend.send(`taget_send_lead=ss`);
+  xhrSend.onreadystatechange = function() {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          console.log(this.responseText);
+        }
+    }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
