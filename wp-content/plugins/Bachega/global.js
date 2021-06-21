@@ -1,6 +1,6 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const page_type = urlParams.get('list');
+const page_type = urlParams.get('list') || urlParams.get('page');
 
 var ajax = {
   upload: false,
@@ -10,18 +10,26 @@ switch(page_type){
     case 'upload':
       ajax.upload = true;
     break;
+    case 'exc-main':
+      ajax.upload = true;
+    break;
 }
 
 if(ajax.upload == true) {
-  const xhrSend = new XMLHttpRequest();
-  xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/pages/ajax.php');
-  xhrSend.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  xhrSend.send(`taget_send_lead=ss`);
-  xhrSend.onreadystatechange = function() {
-      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          console.log(this.responseText);
-        }
-    }
+  document.getElementById('excelUp').addEventListener('change', handleFileSelect, false);
+}
+
+function handleFileSelect(e) {
+  console.log(e);
+  // const xhrSend = new XMLHttpRequest();
+  // xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/pages/ajax.php');
+  // xhrSend.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  // xhrSend.send(`taget_send_lead=ss`);
+  // xhrSend.onreadystatechange = function() {
+  //     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+  //         console.log(this.responseText);
+  //       }
+  //   }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -43,7 +51,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
   
       e.dataTransfer.dropEffect = 'move';
-      
       return false;
     }
   
@@ -57,7 +64,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
     function handleDrop(e) {
       if (e.stopPropagation) {
-        e.stopPropagation(); // stops the browser from redirecting.
+        e.stopPropagation();// stops the browser from redirecting.
       }
       
       if (dragSrcEl != this) {
@@ -76,7 +83,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
     }
     
-    
     let items = document.querySelectorAll('.bgbox .box-fields');
     items.forEach(function(item) {
       item.addEventListener('dragstart', handleDragStart, false);
@@ -86,4 +92,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
       item.addEventListener('drop', handleDrop, false);
       item.addEventListener('dragend', handleDragEnd, false);
     });
-  });
+
+});
