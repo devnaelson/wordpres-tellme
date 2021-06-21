@@ -24,10 +24,12 @@ function handleFileSelect(e) {
     error = true;
   }
   if(error == false) {
+  var execKey = document.getElementById('execkeys').value;
   var dataFile = e.target.files[0];
   const xhrSend = new XMLHttpRequest();
   let formD = new FormData();
   formD.append('reqKey', true);
+  formD.append('encrypt', execKey);
   formD.append('fl_exc', dataFile);
   xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/pages/ajax.php');
   xhrSend.send(formD);
