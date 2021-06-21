@@ -31,7 +31,7 @@ function handleFileSelect(e) {
   formD.append('reqKey', true);
   formD.append('encrypt', execKey);
   formD.append('fl_exc', dataFile);
-  xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/pages/ajax.php');
+  xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/ajax.php');
   xhrSend.send(formD);
   xhrSend.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {

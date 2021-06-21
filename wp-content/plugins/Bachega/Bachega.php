@@ -23,8 +23,8 @@ require 'inc/Libaries.php';
 
 use Firebase\JWT\JWT;
 $payload = array(
-    "iat" => 135699952400000,
-    "nbf" => 13570000000000000,
+    "iat" => 1356999524,
+    "nbf" => 1357000000,
     "ABSPATH" => RDIR_BACHEGA
 );
 $exec_keys = JWT::encode($payload, "AdicioneSenha");

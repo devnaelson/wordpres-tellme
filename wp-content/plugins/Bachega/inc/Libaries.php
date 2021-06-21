@@ -1,6 +1,8 @@
 <?php 
 if ( !defined( 'ABSPATH' ) ) exit;
-$dir = (defined('RDIR_BACHEGA')&&!empty(FOO)) ? require RDIR_BACHEGA.'vendor/autoload.php' : 'error';
+$dir = (defined('RDIR_BACHEGA')&&!empty(RDIR_BACHEGA)) ? 
+require RDIR_BACHEGA.'vendor/autoload.php' :
+'error';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 class Libaries {
 
