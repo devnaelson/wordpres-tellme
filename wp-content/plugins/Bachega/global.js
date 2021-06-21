@@ -15,21 +15,28 @@ switch(page_type){
     break;
 }
 
-if(ajax.upload == true) {
-  document.getElementById('excelUp').addEventListener('change', handleFileSelect, false);
-}
-
+if(ajax.upload == true) document.getElementById('excelUp').addEventListener("change",handleFileSelect);
 function handleFileSelect(e) {
-  console.log(e);
-  // const xhrSend = new XMLHttpRequest();
-  // xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/pages/ajax.php');
-  // xhrSend.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-  // xhrSend.send(`taget_send_lead=ss`);
-  // xhrSend.onreadystatechange = function() {
-  //     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-  //         console.log(this.responseText);
-  //       }
-  //   }
+  var error = false;
+  try{
+    e.target.files[0];
+  }catch(e){
+    error = true;
+  }
+  if(error == false) {
+  var dataFile = e.target.files[0];
+  const xhrSend = new XMLHttpRequest();
+  let formD = new FormData();
+  formD.append('reqKey', true);
+  formD.append('fl_exc', dataFile);
+  xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/pages/ajax.php');
+  xhrSend.send(formD);
+  xhrSend.onreadystatechange = function() {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          console.log(this.responseText);
+        }
+    }
+  }
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {

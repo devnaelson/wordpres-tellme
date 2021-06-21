@@ -3,6 +3,7 @@
 // Hook for adding admin menus
 add_action('admin_menu', 'menu_unsub_add_pages');
 
+
 /**
  * Adds a new top-level page to the administration menu.
  */
@@ -27,13 +28,12 @@ function menu_unsub_add_pages()
         'config_submenu_page_callback',
     );
 }
-
-// //Widget Show
-// function ngspMenuA()
-// {
-//     register_nav_menu('ngsp-nav-menu-loc', __('MenuNV Excel'));
-// }
-// add_action('init', 'ngspMenuA');
+//Widget Show
+function ngspMenuA()
+{
+    register_nav_menu('ngsp-nav-menu-loc', __('MenuNV Excel'));
+}
+add_action('init', 'ngspMenuA');
 
 // wp_update_nav_menu_item($menu_id, 0, array(
 //     'menu-item-title' => 'My Link',

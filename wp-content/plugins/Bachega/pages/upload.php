@@ -1,7 +1,7 @@
-<form enctype="multipart/form-data">
+<form enctype="multipart/form-data" method="post">
 <div class="p-3">
 <div class="input-group">
-  <input type="file" class="form-control"  name="target_upload" id="excelUp">
+  <input type="file" class="form-control" name="target_upload" id="excelUp">
 </div>
 </div>
 </form>
