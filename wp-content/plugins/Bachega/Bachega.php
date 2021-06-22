@@ -19,7 +19,7 @@ define("URL_BACHEGA", plugins_url().'/Bachega');
 define("RDIR_BACHEGA", ABSPATH . 'wp-content/plugins/Bachega/');
 
 require 'inc/hooks.php';
-require 'inc/Libaries.php';
+require 'Libaries.php';
 
 use Firebase\JWT\JWT;
 $payload = array(
@@ -29,9 +29,6 @@ $payload = array(
 );
 $exec_keys = JWT::encode($payload, "AdicioneSenha");
 define("EXEC_ENCRYPT", $exec_keys);
-
-$excel = new Libaries();
-$excel->activePhpSpreadsheet(false, "Xlsx");
 
 /**
  * Disply callback for the Unsub page.
