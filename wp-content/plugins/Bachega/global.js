@@ -35,7 +35,16 @@ function handleFileSelect(e) {
   xhrSend.send(formD);
   xhrSend.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          console.log(this.responseText);
+          let data = JSON.parse(this.responseText);
+          // key: "XXX"
+          // letter: "A"
+          // offset: 0
+          Object.keys(data.exec).forEach(function(key, offset) {
+             var sheet_excel = '<div draggable="true" class="box-fields">'+data.exec[offset].key+'</div>';
+             var sheet_detect = '<div draggable="true" class="box-fields">'+data.exec[offset].letter+'</div>';
+             document.getElementById('sheet_excel').innerHTML += sheet_excel;
+             document.getElementById('sheet_detect').innerHTML += sheet_detect;
+          });
         }
     }
   }

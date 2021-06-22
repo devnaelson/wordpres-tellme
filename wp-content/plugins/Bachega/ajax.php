@@ -17,10 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          $count = 0;
          while($count < count($alf)){
              if(isset($preadsheet[1][$alf[$count]])){
-                echo $preadsheet[1][$alf[$count]];
+                $struct['exec'][$count]['letter'] = $alf[$count];
+                $struct['exec'][$count]['key'] = $preadsheet[1][$alf[$count]];
+                $struct['exec'][$count]['offset'] = $count;
              }
-           
             $count++;
          }
+         echo json_encode($struct);
     }
 }
