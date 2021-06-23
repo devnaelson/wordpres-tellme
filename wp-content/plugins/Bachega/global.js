@@ -40,17 +40,19 @@ function handleFileSelect(e) {
           // letter: "A"
           // offset: 0
           Object.keys(data.exec).forEach(function(key, offset) {
-             var sheet_excel = '<div draggable="true" class="box-fields">'+data.exec[offset].key+'</div>';
-             var sheet_detect = '<div draggable="true" class="box-fields">'+data.exec[offset].letter+'</div>';
+             var sheet_excel = '<div class="box-primary">'+data.exec[offset].key+'</div>';
+             var sheet_detect = '<div draggable="true" class="box-fields" data-column="'+data.exec[offset].letter+'">'+data.exec[offset].letter+'</div>';
              document.getElementById('sheet_excel').innerHTML += sheet_excel;
              document.getElementById('sheet_detect').innerHTML += sheet_detect;
+             if(offset == data.exec.length - 1) startDrag();
           });
         }
     }
   }
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+
+function startDrag(){
 
     var dragSrcEl = null;
     
@@ -111,4 +113,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
       item.addEventListener('dragend', handleDragEnd, false);
     });
 
-});
+  }

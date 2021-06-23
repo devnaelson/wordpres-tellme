@@ -7,13 +7,19 @@
 </div>
 </form>
 
-<div class="row bgbox text-center p-5 w-100">
-    <div class="col-auto bg-danger w-100" id="sheet_excel"></div>
-    <div class="col-auto bg-warning w-100" id="sheet_detect"></div>
-    <div class="col-auto w-100">
+<div class="row text-center">
+    <div class="col-4" id="sheet_excel">
+    </div>
+    <div class="col-4 bgbox" id="sheet_detect">
+    </div>
+    <div class="col-4 bgbox">
         <?php
+        global $wpdb;
+        $dPFields = array();
+        $dPFields = $wpdb->get_results("SHOW COLUMNS FROM bd_erp_peoples");
         $resultFiels = get_option('myfields');
-        for ($bI = 0; $bI < count($resultFiels); $bI++) echo '<div draggable="true" class="box-fields">' . $resultFiels[$bI]['label'] . '</div>';
+        for ($bI = 0; $bI < count($resultFiels); $bI++) echo '<div draggable="true" class="box-fields lessthan" data-custom-field="' . $resultFiels[$bI]['name'] . '">' . $resultFiels[$bI]['name'] . '</div>';
+        for ($bI = 0; $bI < count($dPFields); $bI++) echo '<div draggable="true" class="box-fields lessthan" data-people-field="' . $dPFields[$bI]->Field . '">' . $dPFields[$bI]->Field . '</div>';
         ?>
     </div>
 </div>

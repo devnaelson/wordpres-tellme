@@ -1,14 +1,23 @@
-.bgbox {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-  
-  .box-fields {
-    border: 3px solid #666;
-    background-color: #ddd;
-    border-radius: .5em;
-    padding: 10px;
-    cursor: move;
-    margin: 5px;
-  }
+.box-fields {
+ border: 3px solid #666;
+ background-color: #ddd;
+ border-radius: .5em;
+ padding: 10px;
+ cursor: move;
+ margin: 5px;
+}
+.box-primary {
+border: 3px solid #666;
+background-color: #ddd;
+border-radius: .5em;
+padding: 10px;
+cursor: move;
+margin: 5px;
+}
+
+.lessthan{
+    font-size: 14px;
+    border-radius: .2em !important;
+    padding: 5px !important;
+    margin: 2px !important;
+}
