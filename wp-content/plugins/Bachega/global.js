@@ -39,14 +39,23 @@ function handleFileSelect(e) {
           // key: "XXX"
           // letter: "A"
           // offset: 0
+          var atributes = [];
           Object.keys(data.exec).forEach(function(key, offset) {
              var sheet_excel = '<div class="box-primary">'+data.exec[offset].key+'</div>';
              var sheet_detect = '<div draggable="true" class="box-fields" data-column="'+data.exec[offset].letter+'">'+data.exec[offset].letter+'</div>';
              document.getElementById('sheet_excel').innerHTML += sheet_excel;
              document.getElementById('sheet_detect').innerHTML += sheet_detect;
-             if(offset == data.exec.length - 1) startDrag();
-          });
-        }
+             atributes[offset] = {
+               letter: data.exec[offset].letter,
+               value: null,
+              };
+             if(offset == data.exec.length - 1) {
+               startDrag();
+               excStrurctur = [{file:data.file_name},{spread:atributes}];
+               localStorage.setItem('execStructure',JSON.stringify(excStrurctur));
+           }
+        });
+      }
     }
   }
 }
@@ -55,12 +64,9 @@ function handleFileSelect(e) {
 function startDrag(){
 
     var dragSrcEl = null;
-    
     function handleDragStart(e) {
       this.style.opacity = '0.4';
-      
       dragSrcEl = this;
-  
       e.dataTransfer.effectAllowed = 'move';
       e.dataTransfer.setData('text/html', this.innerHTML);
     }
@@ -69,18 +75,12 @@ function startDrag(){
       if (e.preventDefault) {
         e.preventDefault();
       }
-  
       e.dataTransfer.dropEffect = 'move';
       return false;
     }
   
-    function handleDragEnter(e) {
-      this.classList.add('over');
-    }
-  
-    function handleDragLeave(e) {
-      this.classList.remove('over');
-    }
+    function handleDragEnter(e) { this.classList.add('over'); }
+    function handleDragLeave(e) { this.classList.remove('over'); }
   
     function handleDrop(e) {
       if (e.stopPropagation) {
@@ -88,6 +88,7 @@ function startDrag(){
       }
       
       if (dragSrcEl != this) {
+        console.log(dragSrcEl.innerHTML);
         dragSrcEl.innerHTML = this.innerHTML;
         this.innerHTML = e.dataTransfer.getData('text/html');
       }
@@ -95,9 +96,7 @@ function startDrag(){
       return false;
     }
   
-    function handleDragEnd(e) {
-      this.style.opacity = '1';
-      
+    function handleDragEnd(e) { this.style.opacity = '1';
       items.forEach(function (item) {
         item.classList.remove('over');
       });

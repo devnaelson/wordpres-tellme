@@ -19,7 +19,7 @@
         $dPFields = $wpdb->get_results("SHOW COLUMNS FROM bd_erp_peoples");
         $resultFiels = get_option('myfields');
         for ($bI = 0; $bI < count($resultFiels); $bI++) echo '<div draggable="true" class="box-fields lessthan" data-custom-field="' . $resultFiels[$bI]['name'] . '">' . $resultFiels[$bI]['name'] . '</div>';
-        for ($bI = 0; $bI < count($dPFields); $bI++) echo '<div draggable="true" class="box-fields lessthan" data-people-field="' . $dPFields[$bI]->Field . '">' . $dPFields[$bI]->Field . '</div>';
+        for ($bI = 0; $bI < count($dPFields); $bI++) echo '<div draggable="true" class="box-fields" data-people-field="' . $dPFields[$bI]->Field . '">' . $dPFields[$bI]->Field . '</div>';
         ?>
     </div>
 </div>
