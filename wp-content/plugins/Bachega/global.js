@@ -24,14 +24,14 @@ function handleFileSelect(e) {
     error = true;
   }
   if(error == false) {
-    
+
   var execKey = document.getElementById('execkeys').value;
   var urlEnd = document.getElementById('url_site').value;
 
   var dataFile = e.target.files[0];
   const xhrSend = new XMLHttpRequest();
   let formD = new FormData();
-  formD.append('reqKey', true);
+  formD.append('reqKey', 'getExec');
   formD.append('encrypt', execKey);
   formD.append('fl_exc', dataFile);
   xhrSend.open("POST", urlEnd+'/Bachega/ajax.php');
@@ -117,4 +117,22 @@ function startDrag(){
       item.addEventListener('dragend', handleDragEnd, false);
     });
 
+  }
+
+  function sendStructure() {
+    var execKey = document.getElementById('execkeys').value;
+    var urlEnd = document.getElementById('url_site').value;  
+    const xhrSend = new XMLHttpRequest();
+    let formD = new FormData();
+    formD.append('encrypt', execKey);
+    formD.append('reqKey', 'constructExec');
+    formD.append('dataStructExec', localStorage.getItem('execStructure'));
+    xhrSend.open("POST", urlEnd+'/Bachega/ajax.php');
+    xhrSend.send(formD);
+    xhrSend.onreadystatechange = function() {
+        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            console.log(this.responseText);
+            //let data = JSON.parse(this.responseText);
+        }
+     }
   }

@@ -4,7 +4,7 @@ require 'Libaries.php';
 use Firebase\JWT\JWT;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if(isset($_POST['reqKey'])) {
+    if(isset($_POST['reqKey']) and $_POST['reqKey'] == 'getExec') {
         $extension = substr($_FILES['fl_exc']['name'], strripos($_FILES['fl_exc']['name'], ".")); 
         $struct['exec'] = array();
         $alf = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA','AB','AC','AD','AE','AG');
@@ -29,4 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     //continue
+
+    if(isset($_POST['reqKey']) and $_POST['reqKey'] == 'constructExec') {
+       print_r( $_POST['dataStructExec']);
+    }
 }
