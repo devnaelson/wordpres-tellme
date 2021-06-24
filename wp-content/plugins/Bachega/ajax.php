@@ -29,8 +29,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     //continue
-
     if(isset($_POST['reqKey']) and $_POST['reqKey'] == 'constructExec') {
-       print_r( $_POST['dataStructExec']);
+        $encry = addslashes($_POST['encrypt']);
+        $decoded = JWT::decode($encry, "AdicioneSenha", array('HS256'));
+        $data = json_decode($_POST['dataStructExec']);
+        $ile_name = $data[0]->file;
+        $dest = $decoded->ABSPATH."/assets/upload/".$ile_name;
+        $excel = new Libaries();
+        $preadsheet = $excel->activePhpSpreadsheet(true, "Xlsx",$dest);
+        print_r($preadsheet);
     }
 }
