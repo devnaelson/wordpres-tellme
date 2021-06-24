@@ -24,34 +24,30 @@ function handleFileSelect(e) {
     error = true;
   }
   if(error == false) {
+    
   var execKey = document.getElementById('execkeys').value;
+  var urlEnd = document.getElementById('url_site').value;
+
   var dataFile = e.target.files[0];
   const xhrSend = new XMLHttpRequest();
   let formD = new FormData();
   formD.append('reqKey', true);
   formD.append('encrypt', execKey);
   formD.append('fl_exc', dataFile);
-  xhrSend.open("POST", 'https://localhost/wordpres-fonte/wp-content/plugins/Bachega/ajax.php');
+  xhrSend.open("POST", urlEnd+'/Bachega/ajax.php');
   xhrSend.send(formD);
   xhrSend.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
           let data = JSON.parse(this.responseText);
-          // key: "XXX"
-          // letter: "A"
-          // offset: 0
           var atributes = [];
-          Object.keys(data.exec).forEach(function(key, offset) {
-             var sheet_excel = '<div class="box-primary">'+data.exec[offset].key+'</div>';
-             var sheet_detect = '<div draggable="true" class="box-fields" data-column="'+data.exec[offset].letter+'">'+data.exec[offset].letter+'</div>';
+          Object.keys(data.exec).forEach(function(key) {
+             var sheet_excel = '<div class="box-primary">'+data.exec[key].key+'</div>';
+             var sheet_detect = '<div draggable="true" class="box-fields" data-column="'+data.exec[key].letter+'" data-side="right">'+data.exec[key].letter+'</div>';
              document.getElementById('sheet_excel').innerHTML += sheet_excel;
              document.getElementById('sheet_detect').innerHTML += sheet_detect;
-             atributes[offset] = {
-               letter: data.exec[offset].letter,
-               value: null,
-              };
-             if(offset == data.exec.length - 1) {
-               startDrag();
-               excStrurctur = [{file:data.file_name},{spread:atributes}];
+             atributes[key] = {letter: data.exec[key].letter, value: null};
+             if(key == data.exec.length - 1) { startDrag();
+               excStrurctur = [{file:data.file_name,spread:atributes}];
                localStorage.setItem('execStructure',JSON.stringify(excStrurctur));
            }
         });
@@ -59,7 +55,6 @@ function handleFileSelect(e) {
     }
   }
 }
-
 
 function startDrag(){
 
@@ -87,16 +82,26 @@ function startDrag(){
         e.stopPropagation();// stops the browser from redirecting.
       }
       
-      if (dragSrcEl != this) {
-        console.log(dragSrcEl.innerHTML);
-        dragSrcEl.innerHTML = this.innerHTML;
-        this.innerHTML = e.dataTransfer.getData('text/html');
+      if (dragSrcEl != this && dragSrcEl.getAttribute('data-side') != this.getAttribute('data-side')) {
+        var execStorage = localStorage.getItem('execStructure');
+        var exec = JSON.parse(execStorage);
+        let letter = this.getAttribute('data-column');
+        console.log(this);
+        console.log(dragSrcEl);
+        let value = dragSrcEl.innerHTML;
+        Object.keys(exec[0].spread).forEach(function(key) {
+          if(exec[0].spread[key].letter == letter)
+            exec[0].spread[key].value = value;
+          if(key == exec[0].spread.length -1)
+            localStorage.setItem('execStructure',JSON.stringify(exec));
+        });
+          this.innerHTML = e.dataTransfer.getData('text/html');
       }
-      
       return false;
     }
   
-    function handleDragEnd(e) { this.style.opacity = '1';
+    function handleDragEnd(e) { 
+      this.style.opacity = '1';
       items.forEach(function (item) {
         item.classList.remove('over');
       });
