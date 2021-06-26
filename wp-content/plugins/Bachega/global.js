@@ -1,3 +1,4 @@
+//devNA
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const page_type = urlParams.get('list') || urlParams.get('page');
@@ -38,6 +39,7 @@ function handleFileSelect(e) {
   xhrSend.send(formD);
   xhrSend.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+          window.scrollTo(0,0);
           let data = JSON.parse(this.responseText);
           var atributes = [];
           Object.keys(data.exec).forEach(function(key) {
@@ -45,7 +47,7 @@ function handleFileSelect(e) {
              var sheet_detect = '<div draggable="true" class="box-fields" data-column="'+data.exec[key].letter+'" data-side="right">'+data.exec[key].letter+'</div>';
              document.getElementById('sheet_excel').innerHTML += sheet_excel;
              document.getElementById('sheet_detect').innerHTML += sheet_detect;
-             atributes[key] = {letter: data.exec[key].letter, value: null};
+             atributes[key] = {letter: data.exec[key].letter, value: null,table:null};
              if(key == data.exec.length - 1) { startDrag();
                excStrurctur = [{file:data.file_name,spread:atributes}];
                localStorage.setItem('execStructure',JSON.stringify(excStrurctur));
@@ -66,7 +68,10 @@ function startDrag(){
       e.dataTransfer.setData('text/html', this.innerHTML);
     }
   
+
     function handleDragOver(e) {
+      var r = e.pageY - e.pageY * 20 / 100;
+      window.scrollTo(0,r);
       if (e.preventDefault) {
         e.preventDefault();
       }
@@ -86,17 +91,20 @@ function startDrag(){
         var execStorage = localStorage.getItem('execStructure');
         var exec = JSON.parse(execStorage);
         let letter = this.getAttribute('data-column');
-        console.log(this);
-        console.log(dragSrcEl);
+        let table = dragSrcEl.getAttribute('data-table');
         let value = dragSrcEl.innerHTML;
         Object.keys(exec[0].spread).forEach(function(key) {
           if(exec[0].spread[key].letter == letter)
-            exec[0].spread[key].value = value;
+            {
+              exec[0].spread[key].value = value;
+              exec[0].spread[key].table = table;
+            }
           if(key == exec[0].spread.length -1)
             localStorage.setItem('execStructure',JSON.stringify(exec));
         });
           this.innerHTML = e.dataTransfer.getData('text/html');
       }
+      count = 0;
       return false;
     }
   
@@ -136,3 +144,6 @@ function startDrag(){
         }
      }
   }
+
+//document.body.scrollHeight  
+//window.scrollTo(0,3149);

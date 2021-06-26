@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $dest = $decoded->ABSPATH."/assets/upload/".$ile_name;
         $excel = new Libaries();
         $preadsheet = $excel->activePhpSpreadsheet(true, "Xlsx",$dest);
+        echo count($preadsheet);
         print_r($preadsheet);
     }
 }
