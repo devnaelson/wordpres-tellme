@@ -144,6 +144,3 @@ function startDrag(){
         }
      }
   }
-
-//document.body.scrollHeight  
-//window.scrollTo(0,3149);
