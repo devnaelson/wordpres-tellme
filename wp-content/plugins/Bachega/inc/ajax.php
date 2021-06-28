@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                     $wpdb->insert($table, array($peopleTable[$c1P]->value => $valueSheet));
                                     $peopleID = $wpdb->insert_id;
+                                    $wpdb->update("bd_erp_people_type_relations", array('people_id' => $peopleID), array('people_types_id' => 1));
 
                                 } else {
                                     $wpdb->update($table, array($peopleTable[$c1P]->value => $valueSheet), array('id' => $peopleID));
@@ -135,12 +136,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 $x++;
                             } while ($x >= 0 and $c1P < $psize - 1 and $c1MP < $mSize - 1 and $peopleID != null);
                         }
-
                         if (count($preadsheet) == $i) {
                             unlink($dest);
                             echo json_encode(array('sucessfull' => true, 'error' => false, 'msg' => 'Pronto!'));
                         }
                     }
+                    
             } else { echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Não foi assosiado!!'));
         }
        }//check file exist
