@@ -36,9 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $decoded = JWT::decode($encry, "AdicioneSenha", array('HS256'));
 
         $data = json_decode(stripslashes(html_entity_decode($_POST['dataStructExec'])));
-        $ile_name = $data[0]->file;
+        $file_name = $data[0]->file;
 
-        $dest = $decoded->ABSPATH . "/assets/upload/" . $ile_name;
+        $dest = $decoded->ABSPATH . "/assets/upload/" . $file_name;
+
+        if (file_exists($dest) == false) {
+            echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Arquivo não existe!!'));
+        } else {
+     
         $excel = new Libaries();
         $preadsheet = $excel->activePhpSpreadsheet(true, "Xlsx", $dest);
         $countSpread = count($preadsheet);
@@ -132,10 +137,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
 
                         if (count($preadsheet) == $i) {
+                            unlink($dest);
                             echo json_encode(array('sucessfull' => true, 'error' => false, 'msg' => 'Pronto!'));
                         }
                     }
             } else { echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Não foi assosiado!!'));
         }
-    }
+       }//check file exist
+    }// continue
 } 
