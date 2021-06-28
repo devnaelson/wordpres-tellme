@@ -1,51 +1,15 @@
 <?php
-use Firebase\JWT\JWT;
-require_once plugin_dir_path( dirname( __FILE__ ) ).'/vendor/autoload.php';
+require_once plugin_dir_path(dirname(__FILE__)) . '/vendor/autoload.php';
 require_once 'Libaries.php';
-
+use Firebase\JWT\JWT;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (isset($_POST['reqKey']) and $_POST['reqKey'] == 'getExec') {
         $extension = substr($_FILES['fl_exc']['name'], strripos($_FILES['fl_exc']['name'], "."));
         $struct['exec'] = array();
-        $alf = array(
-            'A',
-            'B',
-            'C',
-            'D',
-            'E',
-            'F',
-            'G',
-            'H',
-            'I',
-            'J',
-            'K',
-            'L',
-            'M',
-            'N',
-            'O',
-            'P',
-            'Q',
-            'R',
-            'S',
-            'T',
-            'U',
-            'V',
-            'W',
-            'X',
-            'Y',
-            'Z',
-            'AA',
-            'AB',
-            'AC',
-            'AD',
-            'AE',
-            'AG'
-        );
+        $alf = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AG');
         $encry = $_POST['encrypt'];
-        $decoded = JWT::decode($encry, "AdicioneSenha", array(
-            'HS256'
-        ));
+        $decoded = JWT::decode($encry, "AdicioneSenha", array('HS256'));
         $f_name = md5(basename($_FILES['fl_exc']['name'])) . $extension;
         $dest = $decoded->ABSPATH . "/assets/upload/" . $f_name;
         move_uploaded_file($_FILES['fl_exc']['tmp_name'], $dest);
@@ -66,12 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //continue
     if (isset($_POST['reqKey']) and $_POST['reqKey'] == 'constructExec') {
+
+        global $wpdb;
         $encry = addslashes($_POST['encrypt']);
-        $decoded = JWT::decode($encry, "AdicioneSenha", array(
-            'HS256'
-        ));
-        $data = json_decode($_POST['dataStructExec']);
+        $decoded = JWT::decode($encry, "AdicioneSenha", array('HS256'));
+
+        $data = json_decode(stripslashes(html_entity_decode($_POST['dataStructExec'])));
         $ile_name = $data[0]->file;
+
         $dest = $decoded->ABSPATH . "/assets/upload/" . $ile_name;
         $excel = new Libaries();
         $preadsheet = $excel->activePhpSpreadsheet(true, "Xlsx", $dest);
@@ -117,49 +83,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                             $table = $peopleTable[$c1P]->table;
                             $valueSheet = $preadsheet[$i][$peopleTable[$c1P]->letter];
-                            if (isset($preadsheet[$i][$peopleTable[$c1P]->letter]) ) {
-                               
-                                if($peopleID == null){
-                                    global $wpdb;
-                                    print_r($wpdb);
-                            
-                                    // $table_name = $wpdb->prefix . $table;     
-                                    // $wpdb->insert($table_name,array($peopleTable[$c1P]->value => $valueSheet));
-                                    // $wpdb->insert_id;
-                                } else {
+                            if (isset($valueSheet)) {
 
+                                if ($peopleID == null) {
+
+                                    $wpdb->insert($table, array($peopleTable[$c1P]->value => $valueSheet));
+                                    $peopleID = $wpdb->insert_id;
+
+                                } else {
+                                    $wpdb->update($table, array($peopleTable[$c1P]->value => $valueSheet), array('id' => $peopleID));
                                 }
 
                             } else {
-                                echo "throw error";
+                                echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Fatal erro vazio!!'));
                             }
 
                             $c1P++;
                             if (isset($peopleTable[$c1P])) goto GO_PEOPLE;
 
                             if (count($metaPeopleTable) > 0) {
+
                                 GO_MTPEOPLE:
-                                    
-                                    if (isset($preadsheet[$i][$metaPeopleTable[$c1MP]])) {
-                                        
+
+                                    $table = $metaPeopleTable[$c1MP]->table;
+                                    $valueSheet = $preadsheet[$i][$metaPeopleTable[$c1MP]->letter];
+                                    if (isset($valueSheet)) {
+
+                                        if (!empty($peopleID)) {
+                                            $wpdb->insert($table, array('erp_people_id' => $peopleID, 'meta_key' => $metaPeopleTable[$c1MP]->value, 'meta_value' => $valueSheet));
+                                        } else {
+                                            echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'people id vazio!!'));
+                                        }
+
                                     } else {
-                                        echo "throw error";
+                                        echo $c1MP;
+                                        echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Fatal erro Vazio!!'));
                                     }
 
                                     $c1MP++;
                                     if (isset($metaPeopleTable[$c1MP])) goto GO_MTPEOPLE;
+
+                                } else {
+                                    echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Fatal erro, nenhum vinculado!!'));
                                 }
+
                                 $x++;
-                            }
-                            while ($x >= 0 and $c1P < $psize - 1 and $c1MP < $mSize - 1 and $peopleID != null);
+                            } while ($x >= 0 and $c1P < $psize - 1 and $c1MP < $mSize - 1 and $peopleID != null);
+                        }
+
+                        if (count($preadsheet) == $i) {
+                            echo json_encode(array('sucessfull' => true, 'error' => false, 'msg' => 'Pronto!'));
                         }
                     }
-                }
-                else {
-                    echo "não foi assosiado!";
-                }
-
-                //continue
-                
-            }
-        } 
+            } else { echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Não foi assosiado!!'));
+        }
+    }
+} 

@@ -139,8 +139,13 @@ function startDrag(){
     xhrSend.send(formD);
     xhrSend.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            console.log(this.responseText);
-            //let data = JSON.parse(this.responseText);
+            let data = JSON.parse(this.responseText);
+            if(data.error == true){
+              alert(data.msg);
+            }
+            if(data.sucessfull == true){
+              alert(data.msg);
+            }
         }
      }
   }
