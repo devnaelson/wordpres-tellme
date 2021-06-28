@@ -3,7 +3,6 @@
 // Hook for adding admin menus
 add_action('admin_menu', 'menu_unsub_add_pages');
 
-
 /**
  * Adds a new top-level page to the administration menu.
  */
@@ -28,6 +27,16 @@ function menu_unsub_add_pages()
         'config_submenu_page_callback',
     );
 }
+
+add_filter( 'page_template', 'templateJ1' );
+function templateJ1( $page_template )
+{
+    if ( is_page( 'sheet-request' ) ) {
+        $page_template = dirname( __FILE__ ) . '/ajax.php';
+    }
+    return $page_template;
+}
+
 //Widget Show
 function ngspMenuA()
 {
@@ -41,7 +50,6 @@ add_action('init', 'ngspMenuA');
 //     'menu-item-status' => 'publish',
 //     'menu-item-type' => 'custom', // optional
 // ));
-
 
 // global $wp_rewrite;
 // if(!page_exists_by_slug('twizo-verification')){

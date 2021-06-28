@@ -35,7 +35,7 @@ function handleFileSelect(e) {
   formD.append('reqKey', 'getExec');
   formD.append('encrypt', execKey);
   formD.append('fl_exc', dataFile);
-  xhrSend.open("POST", urlEnd+'/Bachega/ajax.php');
+  xhrSend.open("POST", urlEnd);
   xhrSend.send(formD);
   xhrSend.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -135,7 +135,7 @@ function startDrag(){
     formD.append('encrypt', execKey);
     formD.append('reqKey', 'constructExec');
     formD.append('dataStructExec', localStorage.getItem('execStructure'));
-    xhrSend.open("POST", urlEnd+'/Bachega/ajax.php');
+    xhrSend.open("POST", urlEnd);
     xhrSend.send(formD);
     xhrSend.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {

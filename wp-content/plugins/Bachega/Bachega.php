@@ -18,8 +18,8 @@
 define("URL_BACHEGA", plugins_url().'/Bachega');
 define("RDIR_BACHEGA", ABSPATH . 'wp-content/plugins/Bachega/');
 
+require 'vendor/autoload.php';
 require 'inc/hooks.php';
-require 'Libaries.php';
 
 use Firebase\JWT\JWT;
 $payload = array(
@@ -38,7 +38,7 @@ function menu_unsub_page_callback()
 
     require_once 'header.php';
     // global $current_user;
-
+    
     if (has_nav_menu('ngsp-nav-menu-loc')) {
         wp_nav_menu(array('theme_location' => 'ngsp-nav-menu-loc'));
     }
