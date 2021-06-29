@@ -50,7 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $metaPeopleTable = array();
         $peopleTable = array();
+        $fileTable = array();
         $c1P = 0;
+        $c1F = 0;
         $c1MP = 0;
 
         for ($k = 0;$k < count($data[0]->spread);$k++) {
@@ -67,6 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($table == 'bd_erp_peoplemeta') {
                     $metaPeopleTable[$c1MP] = $data[0]->spread[$k];
                     $c1MP++;
+                }
+            }
+
+            if (isset($data[0]->spread[$k]->value) and isset($data[0]->spread[$k]->table)) {
+                $table = $data[0]->spread[$k]->table;
+                if ($table == 'bd_erp_employee_dir_file_relationship') {
+                    $fileTable[$c1F] = $data[0]->spread[$k];
+                    $c1F++;
                 }
             }
         }
@@ -95,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     $wpdb->insert($table, array($peopleTable[$c1P]->value => $valueSheet));
                                     $peopleID = $wpdb->insert_id;
                                     $wpdb->update("bd_erp_people_type_relations", array('people_id' => $peopleID), array('people_types_id' => 1));
-
+                                    
                                 } else {
                                     $wpdb->update($table, array($peopleTable[$c1P]->value => $valueSheet), array('id' => $peopleID));
                                 }

@@ -21,9 +21,17 @@
           global $wpdb;
           $dPFields = array();
           $dPFields = $wpdb->get_results("SHOW COLUMNS FROM bd_erp_peoples");
+
+          $dFilesFields = array();
+          $dFilesFields = $wpdb->get_results("SHOW COLUMNS FROM bd_erp_employee_dir_file_relationship");
+
           $resultFiels = get_option('myfields');
           for ($bI = 0; $bI < count($resultFiels); $bI++) echo '<div draggable="true" class="box-fields lessthan" data-side="left" data-column="' . $resultFiels[$bI]['name'] . '" data-table="bd_erp_peoplemeta" >' . $resultFiels[$bI]['name'] . '</div>';
           for ($bI = 0; $bI < count($dPFields); $bI++) echo '<div draggable="true" class="box-fields" data-people-field="' . $dPFields[$bI]->Field . '" data-table="bd_erp_peoples">' . $dPFields[$bI]->Field . '</div>';
+          for ($bI = 0; $bI < count($dFilesFields); $bI++) {
+            if($dFilesFields[$bI]->Field == 'dir_name')
+            echo '<div draggable="true" class="box-fields" data-people-field="' . $dFilesFields[$bI]->Field . '" data-table="bd_erp_employee_dir_file_relationship">' . $dFilesFields[$bI]->Field . '</div>';
+          }
           ?>
       </div>
     </div>
