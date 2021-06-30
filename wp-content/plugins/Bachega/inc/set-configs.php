@@ -8,5 +8,6 @@ function auto_config()
          echo '<div class="alert m-2 alert-success" role="alert">Successfull page ID=' . $flagSheetRequest . '</div>';
     else 
          echo '<div class="alert m-2 alert-danger" role="alert">Error pageID=' . $flagSheetRequest . '</div>';
+         
 }
 auto_config();
