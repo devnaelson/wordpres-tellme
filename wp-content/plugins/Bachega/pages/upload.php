@@ -5,7 +5,6 @@
   <input type="hidden" id="execkeys" value="<?=EXEC_ENCRYPT;?>">
   <input type="hidden" id="url_site" value="<?php echo get_page_by_title("sheet-request")->guid; ?>">
   <button class="btn btn-outline-secondary" type="button" id="exec_send" onclick="sendStructure();">Enviar</button>
-  
 </div>
 </div>
 </form>

@@ -9,9 +9,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?php echo esc_url(add_query_arg(array('list' => 'upload'))); ?>">UPLOAD</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo esc_url(add_query_arg(array('list' => 'download'))); ?>">DOWNLOAD</a>
-                </li>
             </ul>
         </div>
     </div>
