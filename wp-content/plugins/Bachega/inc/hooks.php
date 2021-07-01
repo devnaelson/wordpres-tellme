@@ -22,10 +22,12 @@ function menu_unsub_add_pages()
     );
 }
 
-add_filter( 'page_template', 'templateJ1' );
-function templateJ1( $page_template ) {
-    if ( is_page( 'sheet-request' ) ) {
-        $page_template = dirname( __FILE__ ) . '/ajax.php';
-    }
-    return $page_template;
+add_action( 'wp_ajax_my_action', 'calledFilePHP' );
+function calledFilePHP( $page_template ) {
+    $page_template = dirname( __FILE__ ) . '/ajax.php';
+}
+
+add_action( 'admin_enqueue_scripts', 'calledJS' );
+function calledJS() {
+	wp_enqueue_script( 'ajax-script', plugins_url( '/global.js', __FILE__ ), array(), null, true );
 }
