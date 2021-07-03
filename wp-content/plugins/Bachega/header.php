@@ -34,4 +34,4 @@
 
 <body <?php body_class(); ?>>
 
-<div class="container-fluid">
+<div class="container">

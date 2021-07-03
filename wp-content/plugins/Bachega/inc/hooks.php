@@ -11,23 +11,15 @@ function menu_unsub_add_pages()
         '',
         60
     );
-
-    add_submenu_page(
-        'exc-main',
-        'Config',
-        'Config',
-        'manage_options',
-        'configs',
-        'config_submenu_page_callback',
-    );
 }
 
-add_action( 'wp_ajax_my_action', 'calledFilePHP' );
-function calledFilePHP( $page_template ) {
-    $page_template = dirname( __FILE__ ) . '/ajax.php';
+add_action( 'wp_ajax_exe_ajax', 'exe_ajax' );
+function exe_ajax() {
+   require 'ajax.php';
+   wp_die(); // this is required to terminate immediately and return a proper response
 }
 
 add_action( 'admin_enqueue_scripts', 'calledJS' );
 function calledJS() {
-	wp_enqueue_script( 'ajax-script', plugins_url( '/global.js', __FILE__ ), array(), null, true );
+	wp_enqueue_script( 'ajax-script', URL_BACHEGA."/global.js", array(), null, true );
 }

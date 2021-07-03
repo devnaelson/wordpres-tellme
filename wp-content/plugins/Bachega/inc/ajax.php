@@ -2,51 +2,60 @@
 require_once plugin_dir_path(dirname(__FILE__)) . '/vendor/autoload.php';
 require_once 'Libaries.php';
 use Firebase\JWT\JWT;
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    if (isset($_POST['reqKey']) and $_POST['reqKey'] == 'getExec') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    global $wpdb;
+    if (isset($_POST['req_key']) and $_POST['req_key'] == 'set_exec') {
+
         $extension = substr($_FILES['fl_exc']['name'], strripos($_FILES['fl_exc']['name'], "."));
-        $struct['exec']           = array();
-        $alf       = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD', 'AE', 'AG');
-        $encry     = $_POST['encrypt'];
-        $decoded   = JWT::decode($encry, "AdicioneSenha", array('HS256'));
-        $f_name    = md5(basename($_FILES['fl_exc']['name'])) . $extension;
-        $dest      = $decoded->ABSPATH . "/assets/upload/" . $f_name;
-        move_uploaded_file($_FILES['fl_exc']['tmp_name'], $dest);
+        $struct['exec'] = array();
+        $alf = array(
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
+        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 
+        'U', 'V', 'W', 'X', 'Y', 'Z', 'AA', 'AB', 'AC', 'AD',
+        'AE', 'AG','AF','AG','AH','AI','AJ','AK','AL','AM',
+        'AN','AO','AP','AQ','AR','AS','AT','AU','AV','AW'
+        );
+        $encry      = $_POST['encrypt'];
+        $decoded    = JWT::decode($encry, "AdicioneSenha", array('HS256'));
+        $f_name     = md5(basename($_FILES['fl_exc']['name'])) . $extension;
+        $destiny    = $decoded->ABSPATH.$f_name;
+
+        move_uploaded_file($_FILES['fl_exc']['tmp_name'],$destiny);
+
         $excel      = new Libaries();
-        $preadsheet = $excel->activePhpSpreadsheet(true, "Xlsx", $dest);
+        $preadsheet = $excel->activePhpSpreadsheet(true, "Xlsx", $destiny);
         $count      = 0;
         while ($count < count($alf)) {
             if (isset($preadsheet[1][$alf[$count]])) {
-                $struct['exec'][$count]['letter']            = $alf[$count];
-                $struct['exec'][$count]['key']            = $preadsheet[1][$alf[$count]];
-                $struct['exec'][$count]['offset']            = $count;
-            }
-            $count++;
+                $struct['exec'][$count]['letter'] = $alf[$count];
+                $struct['exec'][$count]['key']    = $preadsheet[1][$alf[$count]];
+                $struct['exec'][$count]['offset'] = $count;
+            }$count++;
         }
         $struct['file_name'] = $f_name;
         echo json_encode($struct);
     }
 
     //continue
-    if (isset($_POST['reqKey']) and $_POST['reqKey'] == 'constructExec') {
+    if (isset($_POST['req_key']) and $_POST['req_key'] == 'dbbuild_exec') {
 
-        global $wpdb;
         $encry     = addslashes($_POST['encrypt']);
         $decoded   = JWT::decode($encry, "AdicioneSenha", array('HS256'));
 
-        $data      = json_decode(stripslashes(html_entity_decode($_POST['dataStructExec'])));
+        $data      = json_decode(stripslashes(html_entity_decode($_POST['data_exec'])));
         $file_name = $data[0]->file;
 
-        $dest      = $decoded->ABSPATH . "/assets/upload/" . $file_name;
+        $destinyRecovery      = $decoded->ABSPATH . $file_name;
 
-        if (file_exists($dest) == false) {
-            echo json_encode(array('sucessfull'                 => false, 'error'                 => true, 'msg'                 => 'Arquivo não existe!!'));
+        if (file_exists($destinyRecovery) == false) {
+            echo json_encode(array('sucessfull'=> false, 'error'=> true, 'msg'=> 'Arquivo não existe!!'));
         }
+
         else {
 
             $excel           = new Libaries();
-            $preadsheet      = $excel->activePhpSpreadsheet(true, "Xlsx", $dest);
+            $preadsheet      = $excel->activePhpSpreadsheet(true, "Xlsx", $destinyRecovery);
             $countSpread     = count($preadsheet);
 
             $metaPeopleTable = array();
@@ -56,11 +65,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $c1F             = 0;
             $c1MP            = 0;
 
-            for ($k               = 0;$k < count($data[0]->spread);$k++) {
+            for ($k = 0;$k < count($data[0]->spread);$k++) {
                 if (isset($data[0]->spread[$k]->value) and isset($data[0]->spread[$k]->table)) {
                     $table = $data[0]->spread[$k]->table;
                     if ($table == 'bd_erp_peoples') {
-                        $peopleTable[$c1P]       = $data[0]->spread[$k];
+                        $peopleTable[$c1P] = $data[0]->spread[$k];
                         $c1P++;
                     }
                 }
@@ -68,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (isset($data[0]->spread[$k]->value) and isset($data[0]->spread[$k]->table)) {
                     $table = $data[0]->spread[$k]->table;
                     if ($table == 'bd_erp_peoplemeta') {
-                        $metaPeopleTable[$c1MP]       = $data[0]->spread[$k];
+                        $metaPeopleTable[$c1MP] = $data[0]->spread[$k];
                         $c1MP++;
                     }
                 }
@@ -76,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (isset($data[0]->spread[$k]->value) and isset($data[0]->spread[$k]->table)) {
                     $table = $data[0]->spread[$k]->table;
                     if ($table == 'bd_erp_employee_dir_file_relationship') {
-                        $fileTable[$c1F]       = $data[0]->spread[$k];
+                        $fileTable[$c1F] = $data[0]->spread[$k];
                         $c1F++;
                     }
                 }
@@ -87,13 +96,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $x       = 0;
             $lead_id = 0;
             if ($psize > 0) {
-                for ($i       = 0;$i < count($preadsheet) + 1;$i++) {
+                for ($i = 0;$i < count($preadsheet) + 1;$i++) {
 
                     if ($i > 1) {
+
                         $c1P        = 0;
                         $c1MP       = 0;
                         $c1F        = 0;
                         $peopleID   = null;
+
                         do {
 
                                 GO_PEOPLE:
@@ -102,26 +113,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 if (isset($valueSheet)) {
 
                                     if ($peopleID == null) {
+                                        // data criado
+                                        // life stage and contact owner is lack here inthis insert
+                                        $wpdb->insert($table, array(
+                                            $peopleTable[$c1P]->value=> $valueSheet
+                                        ));
 
-                                        $wpdb->insert($table, array($peopleTable[$c1P]->value   => $valueSheet));
                                         $peopleID = $wpdb->insert_id;
-                                        $wpdb->insert("bd_erp_people_type_relations", array('people_id' => $peopleID, 'people_types_id' => 1));
+                                        $wpdb->insert("bd_erp_people_type_relations", array(
+                                            'people_id' => $peopleID, 
+                                            'people_types_id' => 1));
 
-                                    }
-                                    else {
-                                        $wpdb->update($table, array($peopleTable[$c1P]->value => $valueSheet), array('id' => $peopleID));
+                                    }else {
+                                        $wpdb->update($table, array(
+                                             $peopleTable[$c1P]->value => $valueSheet),array(
+                                                 'id' => $peopleID));
                                     }
 
-                                }
-                                else {
+                                }else {
                                     echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Fatal erro vazio!!'));
                                 }
 
                                 $c1P++;
-                                if (isset($peopleTable[$c1P])) goto GO_PEOPLE;
+                                if (isset($peopleTable[$c1P])) 
+                                    goto GO_PEOPLE;
 
                                 if (count($fileTable) > 0) {
                                     GO_FILE:
+
                                         $table      = $fileTable[$c1F]->table;
                                         $valueSheet = $preadsheet[$i][$fileTable[$c1F]->letter];
 
@@ -129,25 +148,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                                             if (!empty($peopleID)) {
 
-                                                $wpdb->insert('wp_posts', array('post_author'        => 1, 'post_content'        => 'PDF', 'post_title'        => $valueSheet, 'post_excerpt'        => '', 'to_ping'        => '', 'pinged'        => '', 'post_content_filtered'        => '',));
+                                                $wpdb->insert('bd_posts', array('post_author'        => 1, 'post_content'        => 'PDF', 'post_title'        => $valueSheet, 'post_excerpt'        => '', 'to_ping'        => '', 'pinged'        => '', 'post_content_filtered'        => '',));
                                                 $postID = $wpdb->insert_id;
-
-                                                /*
-                                                    change it name WP from db for crm
-                                                */
-
-                                                $wpdb->insert('wp_postmeta', array('post_id' => $postID, 'meta_key' => '_wp_attached_file', 'meta_value' => $valueSheet));
+                                                $wpdb->insert('bd_postmeta', array('post_id' => $postID, 'meta_key' => '_wp_attached_file', 'meta_value' => $valueSheet));
                                                 $wpdb->insert($table, array('eid' => $peopleID, 'dir_id' => '_wp_attached_file', 'dir_name' => $valueSheet, 'attachment_id'=> $postID));
 
-                                            }
-                                            else {
+                                            }else {
                                                 echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Fatal erro vazio 1!!'));
                                             }
 
                                         }// else vazio
 
                                         $c1F++;
-                                        if (isset($fileTable[$c1F])) goto GO_FILE;
+                                        if (isset($fileTable[$c1F])) 
+                                            goto GO_FILE;
 
                                     }
 
@@ -159,9 +173,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             if (isset($valueSheet)) {
 
                                                 if (!empty($peopleID)) {
-                                                    $wpdb->insert($table, array('erp_people_id' => $peopleID, 'meta_key' => $metaPeopleTable[$c1MP]->value, 'meta_value' => $valueSheet));
-                                                }
-                                                else {
+                                                    $wpdb->insert($table,array(
+                                                        'erp_people_id' => $peopleID,
+                                                        'meta_key' => $metaPeopleTable[$c1MP]->value,
+                                                        'meta_value' => $valueSheet));
+                                                }else {
                                                     echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'people id vazio!!'));
                                                 }
 
@@ -170,23 +186,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             $c1MP++;
                                             if (isset($metaPeopleTable[$c1MP])) goto GO_MTPEOPLE;
 
-                                        }
-                                        else {
+                                        }else {
                                             echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Fatal erro, nenhum vinculado!!'));
                                         }
 
                                         $x++;
-                                    }
-                                    while ($x >= 0 and $c1P < $psize - 1 and $c1MP < $mSize - 1 and $peopleID != null);
+
+                                    } while ($x >= 0 and $c1P < $psize - 1 and $c1MP < $mSize - 1 and $peopleID != null);
                                 }
                                 if (count($preadsheet) == $i) {
-                                    unlink($dest);
+                                    unlink($destinyRecovery);
                                     echo json_encode(array('sucessfull' => true, 'error' => false, 'msg' => 'Pronto!'));
                                 }
                             }
 
-                        }
-                        else {
+                        } else {
                             echo json_encode(array('sucessfull' => false, 'error' => true, 'msg' => 'Não foi assosiado!!'));
                         }
                     } //check file exist

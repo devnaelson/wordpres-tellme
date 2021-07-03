@@ -1,4 +1,5 @@
 //devNA
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const page_type = urlParams.get('list') || urlParams.get('page');
@@ -27,15 +28,14 @@ function handleFileSelect(e) {
   if(error == false) {
 
   var execKey = document.getElementById('execkeys').value;
-  var urlEnd = document.getElementById('url_site').value;
-
   var dataFile = e.target.files[0];
   const xhrSend = new XMLHttpRequest();
   let formD = new FormData();
-  formD.append('reqKey', 'getExec');
+  formD.append('action', 'exe_ajax');
+  formD.append('req_key', 'set_exec');
   formD.append('encrypt', execKey);
   formD.append('fl_exc', dataFile);
-  xhrSend.open("POST", urlEnd);
+  xhrSend.open("POST", ajaxurl);
   xhrSend.send(formD);
   xhrSend.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -68,7 +68,6 @@ function startDrag(){
       e.dataTransfer.setData('text/html', this.innerHTML);
     }
   
-
     function handleDragOver(e) {
       var r = e.pageY - e.pageY * 20 / 100;
       window.scrollTo(0,r);
@@ -126,26 +125,67 @@ function startDrag(){
     });
 
   }
+function sendStructure() {
 
-  function sendStructure() {
-    var execKey = document.getElementById('execkeys').value;
-    var urlEnd = document.getElementById('url_site').value;  
-    const xhrSend = new XMLHttpRequest();
-    let formD = new FormData();
-    formD.append('encrypt', execKey);
-    formD.append('reqKey', 'constructExec');
-    formD.append('dataStructExec', localStorage.getItem('execStructure'));
-    xhrSend.open("POST", urlEnd);
-    xhrSend.send(formD);
-    xhrSend.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            let data = JSON.parse(this.responseText);
-            if(data.error == true){
-              alert(data.msg);
+    var execStorage = localStorage.getItem('execStructure');
+    var exec = JSON.parse(execStorage);
+
+    var validationByTable = '"' + document.getElementById('exeTable_check').value + '"';
+    var validationByField = '"' + document.getElementById('exeField_check').value + '"';
+
+
+    var validationGoWait = new Promise(function(resolve, reject) {
+    Object.keys(exec[0].spread).forEach(function(key) {
+            if (validationByTable == JSON.stringify(exec[0].spread[key].table)) {
+                validationByTable = true;
             }
-            if(data.sucessfull == true){
-              alert(data.msg);
+
+            if (validationByField == JSON.stringify(exec[0].spread[key].value)) {
+                validationByField = true;
             }
+
+            if (key == exec[0].spread.length - 1) {
+
+                if (validationByTable != true) {
+                    reject("Error Campos tabela people não foi definido!");
+                }
+
+                if (validationByField == true) {
+                    resolve(true);
+                } else {
+                    reject("Error Campo validação não foi definido!");
+                }
+            }
+        });
+    });
+
+    validationGoWait.then((res) => {
+        if (res == true) {
+            var execKey = document.getElementById('execkeys').value;
+            const xhrSend = new XMLHttpRequest();
+            let formD = new FormData();
+            formD.append('action', 'exe_ajax');
+            formD.append('encrypt', execKey);
+            formD.append('req_key', 'dbbuild_exec');
+            formD.append('data_exec', localStorage.getItem('execStructure'));
+            xhrSend.open("POST", ajaxurl);
+            xhrSend.send(formD);
+            xhrSend.onreadystatechange = function() {
+                if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                    //console.log(this.responseText);
+                    let data = JSON.parse(this.responseText);
+                    if(data.error == true){
+                      alert(data.msg);
+                    }
+                    if(data.sucessfull == true){
+                      alert(data.msg);
+                    }
+                }
+            }
+
         }
-     }
-  }
+
+    }).catch((error) => {
+        alert(error);
+    });
+}
