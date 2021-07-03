@@ -18,7 +18,10 @@
 
 
 <div class="content">
-    My content
+<form method="post" onsubmit="return false">
+    <input type="hidden" name="doing_form" value="yes"/>
+    <input type="submit" id="MyClick">
+</form>
 </div>
 
 

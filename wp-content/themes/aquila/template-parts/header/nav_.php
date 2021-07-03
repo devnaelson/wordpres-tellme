@@ -49,9 +49,9 @@ $menu_class = \AQUILA_THEME\Inc\Menu::get_instance();
 $menu_class->get_menu_id('naelson-header-menu');
 
 
-wp_nav_menu([
-    'theme_location' => 'naelson-header-menu',
-    'container_class' => 'custom-menu-class'
-]);
+// wp_nav_menu([
+//     'theme_location' => 'naelson-header-menu',
+//     'container_class' => 'custom-menu-class'
+// ]);
 
 ?>
