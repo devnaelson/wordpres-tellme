@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?php echo esc_url(add_query_arg(array('list' => 'upload'))); ?>">UPLOAD</a>
+                    <a class="nav-link active" aria-current="page" href="<?php echo esc_url(add_query_arg(array('list' => 'upload'))); ?>">BOLETO - MUDAR ROTA</a>
                 </li>
             </ul>
         </div>

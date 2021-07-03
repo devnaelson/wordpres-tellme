@@ -27,9 +27,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
   <!-- Bootstrap CSS -->
-  <link href="<?php echo URL_BACHEGA . '/style.css'; ?>" rel="stylesheet">
+  <link href="<?php echo URL_PAGAME . '/style.css'; ?>" rel="stylesheet">
 
-  <title>Plugin, Excel!</title>
+  <title>PAGA, ME!</title>
 </head>
 
 <body <?php body_class(); ?>>
