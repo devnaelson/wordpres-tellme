@@ -1,0 +1,2 @@
+[2019-09-27 20:11:11] [ERROR]: {"error":{"status":"Bad Request","status_code":400,"type":"invalid_request_error","category":"missing_required_param","message":"Missing required param: ein. Please verify request parameters."},"Status":{"Code":"400","Name":"Bad Request","Description":"Ocorreu algum erro. Algum parametro necess\u00e1rio n\u00e3o foi enviado. "}}
+

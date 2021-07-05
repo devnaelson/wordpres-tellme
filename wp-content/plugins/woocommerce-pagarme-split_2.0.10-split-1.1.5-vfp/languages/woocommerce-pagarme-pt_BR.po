@@ -1,0 +1,536 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Pagar.me com split de recebedor 2.0.9-split-"
+"1.0.1_alpha\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woocommerce-"
+"pagarme\n"
+"POT-Creation-Date: 2016-11-23 03:56:39+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-12-26 18:18+0000\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"Last-Translator: admin <producao@twowins.com.br>\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt-BR\n"
+"Plural-Forms: nplurals=2; plural=n != 1"
+
+#: includes/admin/views/html-notice-missing-woocommerce.php:22
+msgid "WooCommerce Pagar.me"
+msgstr ""
+
+#: includes/admin/views/html-notice-missing-woocommerce.php:22
+msgid "depends on the last version of WooCommerce to work!"
+msgstr ""
+
+#: includes/admin/views/html-notice-missing-woocommerce.php:25
+msgid "Active WooCommerce"
+msgstr ""
+
+#: includes/admin/views/html-notice-missing-woocommerce.php:28
+#: includes/admin/views/html-notice-missing-woocommerce.php:30
+msgid "Install WooCommerce"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:453
+msgid "Invalid transaction data."
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:462
+msgid "Payment made with more installments than allowed."
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:473
+msgid "Payment divided into a lower amount than permitted."
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:595
+msgid "Visa"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:596
+msgid "MasterCard"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:597
+msgid "American Express"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:598
+msgid "Aura"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:599
+msgid "JCB"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:600
+msgid "Diners"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:601
+msgid "Elo"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:602
+msgid "Hipercard"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:603
+msgid "Discover"
+msgstr ""
+
+#: includes/class-wc-pagarme-api.php:619
+msgid "Banking Ticket URL"
+msgstr ""
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:106
+#: includes/class-wc-pagarme-credit-card-gateway.php:112
+msgid "Pagar.me API Url"
+msgstr ""
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:112
+#: includes/class-wc-pagarme-credit-card-gateway.php:118
+msgid "Pagar.me API Key"
+msgstr ""
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:114
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:123
+#: includes/class-wc-pagarme-credit-card-gateway.php:120
+#: includes/class-wc-pagarme-credit-card-gateway.php:129
+msgid "Pagar.me Dashboard > My Account page"
+msgstr ""
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:121
+#: includes/class-wc-pagarme-credit-card-gateway.php:127
+msgid "Pagar.me Encryption Key"
+msgstr ""
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:123
+#: includes/class-wc-pagarme-credit-card-gateway.php:129
+msgid ""
+"Please enter your Pagar.me Encryption key. This is needed to process the "
+"payment. Is possible get your Encryption Key in %s."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce Pagar.me com split de recebedor"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://github.com/claudiosmweb/woocommerce-pagarme"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Gateway de pagamento Pagar.me para WooCommerce. Com suporte a split de "
+"recebedores."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Barradev(Rui Andrada)"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://barradev.com/"
+msgstr ""
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:192
+msgctxt "no free installments"
+msgid "None"
+msgstr ""
+
+#: includes/admin/views/html-notice-currency-not-supported.php:15
+msgid "Pagar.me Disabled"
+msgstr "Pagar.me Desativado"
+
+#: includes/admin/views/html-notice-currency-not-supported.php:15
+msgid "Currency %s is not supported. Works only with Brazilian Real."
+msgstr "A moeda %s não é suportada. Funciona apenas com o Real Brasileiro."
+
+#: includes/class-wc-pagarme-api.php:482
+msgid "Wrong payment amount total."
+msgstr "Valor total do pagamento errado."
+
+#: includes/class-wc-pagarme-api.php:623
+#: includes/class-wc-pagarme-credit-card-gateway.php:97
+msgid "Credit Card"
+msgstr "Cartão de Crédito"
+
+#: includes/class-wc-pagarme-api.php:626
+#: includes/class-wc-pagarme-credit-card-gateway.php:144
+#: templates/credit-card/payment-form.php:36
+msgid "Installments"
+msgstr "Parcelas"
+
+#: includes/class-wc-pagarme-api.php:629
+msgid "Total paid"
+msgstr "Total pago"
+
+#: includes/class-wc-pagarme-api.php:632
+msgid "Anti Fraud Score"
+msgstr "Pontuação Anti Fraude"
+
+#: includes/class-wc-pagarme-api.php:665 includes/split-extra-functions.php:269
+msgid ""
+"Missing credit card data, please review your data and try again or contact "
+"us for assistance."
+msgstr ""
+"Dados de cartão de crédito em falta, reveja os dados e tente novamente ou "
+"contacte-nos para obter assistência."
+
+#: includes/class-wc-pagarme-api.php:760
+msgid "Pagar.me Request Failure"
+msgstr ""
+"Traduzir\n"
+"\n"
+"Pagar.me Request Failure\n"
+"\n"
+"Falha na solicitação do Pagar.me"
+
+#: includes/class-wc-pagarme-api.php:796
+msgid "Pagar.me: The transaction was authorized."
+msgstr "Pagar.me: A transação foi autorizada."
+
+#: includes/class-wc-pagarme-api.php:801
+msgid "Pagar.me: The transaction is being processed."
+msgstr "Pagar.me: A transação está sendo processada."
+
+#: includes/class-wc-pagarme-api.php:806
+msgid "Pagar.me: Transaction paid."
+msgstr "Pagar.me: Transação paga."
+
+#: includes/class-wc-pagarme-api.php:814
+msgid "Pagar.me: The banking ticket was issued but not paid yet."
+msgstr "Pagar.me: O bilhete bancário foi emitido mas não pago ainda."
+
+#: includes/class-wc-pagarme-api.php:818
+msgid "Pagar.me: The transaction was rejected by the card company or by fraud."
+msgstr ""
+"Pagar.me: A transação foi rejeitada pela empresa de cartão ou por fraude."
+
+#: includes/class-wc-pagarme-api.php:824
+msgid ""
+"The transaction for order %s was rejected by the card company or by fraud"
+msgstr ""
+"A transação para o pedido %s foi rejeitado pela empresa de cartão ou por "
+"fraude"
+
+#: includes/class-wc-pagarme-api.php:825
+msgid "Transaction failed"
+msgstr "Falha na transação"
+
+#: includes/class-wc-pagarme-api.php:826
+msgid ""
+"Order %1$s has been marked as failed, because the transaction was rejected "
+"by the card company or by fraud, for more details, see %2$s."
+msgstr ""
+"O pedido %1$s foi marcada como falha, porque a transação foi rejeitada pela "
+"empresa do cartão ou por fraude, para obter mais detalhes, consulte %2$s."
+
+#: includes/class-wc-pagarme-api.php:831
+msgid "Pagar.me: The transaction was refunded/canceled."
+msgstr "Pagar.me: A transação foi reembolsada/cancelada."
+
+#: includes/class-wc-pagarme-api.php:837
+msgid "The transaction for order %s refunded"
+msgstr "A transação para o pedido %s reembolsado"
+
+#: includes/class-wc-pagarme-api.php:838
+msgid "Transaction refunded"
+msgstr "Transação reembolsada"
+
+#: includes/class-wc-pagarme-api.php:839
+msgid ""
+"Order %1$s has been marked as refunded by Pagar.me, for more details, see "
+"%2$s."
+msgstr ""
+"O pedido %1$s foi marcada como reembolsada por Pagar.me, para mais detalhes, "
+"veja %2$s."
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:26
+msgid "Pagar.me - Banking Ticket"
+msgstr "Pagar.me - Boleto Bancário"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:27
+msgid "Accept banking ticket payments using Pagar.me."
+msgstr "Aceitar pagamentos de bilhetes bancários usando Pagar.me."
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:81
+#: includes/class-wc-pagarme-credit-card-gateway.php:87
+msgid "Enable/Disable"
+msgstr "Habilitar/Desabilitar"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:83
+msgid "Enable Pagar.me Banking Ticket"
+msgstr "Ativar Pagar.me Boleto Bancário"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:87
+#: includes/class-wc-pagarme-credit-card-gateway.php:93
+msgid "Title"
+msgstr "Título"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:89
+#: includes/class-wc-pagarme-credit-card-gateway.php:95
+msgid "This controls the title which the user sees during checkout."
+msgstr "Isso controla o título que o usuário vê durante o checkout."
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:91
+msgid "Banking Ticket"
+msgstr "Boleto Bancário"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:94
+#: includes/class-wc-pagarme-credit-card-gateway.php:100
+msgid "Description"
+msgstr "Descrição"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:96
+#: includes/class-wc-pagarme-credit-card-gateway.php:102
+msgid "This controls the description which the user sees during checkout."
+msgstr "Isso controla a descrição que o usuário vê durante o checkout."
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:98
+msgid "Pay with Banking Ticket"
+msgstr "Pagar com boleto bancário"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:101
+#: includes/class-wc-pagarme-credit-card-gateway.php:107
+msgid "Integration Settings"
+msgstr "Configurações de integração"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:114
+#: includes/class-wc-pagarme-credit-card-gateway.php:120
+msgid ""
+"Please enter your Pagar.me API Key. This is needed to process the payment "
+"and notifications. Is possible get your API Key in %s."
+msgstr ""
+"Insira sua chave API Pagar.me. Isso é necessário para processar o pagamento "
+"e as notificações. É possível obter sua chave da API em %s."
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:130
+#: includes/class-wc-pagarme-credit-card-gateway.php:208
+msgid "Gateway Testing"
+msgstr "Testando Gateway"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:135
+#: includes/class-wc-pagarme-credit-card-gateway.php:213
+msgid "Debug Log"
+msgstr "Registros de depuração"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:137
+#: includes/class-wc-pagarme-credit-card-gateway.php:215
+msgid "Enable logging"
+msgstr "Habilitar logs"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:139
+#: includes/class-wc-pagarme-credit-card-gateway.php:217
+msgid "Log Pagar.me events, such as API requests. You can check the log in %s"
+msgstr ""
+"Registrar eventos Pagar.me, como solicitações de API. Você pode verificar o "
+"log in %s"
+
+#: includes/class-wc-pagarme-banking-ticket-gateway.php:139
+#: includes/class-wc-pagarme-credit-card-gateway.php:217
+msgid "System Status &gt; Logs"
+msgstr "Status do Sistema &gt; Logs"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:26
+msgid "Pagar.me - Credit Card"
+msgstr "Pagar.me - Cartão de Crédito"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:27
+msgid "Accept credit card payments using Pagar.me."
+msgstr "Aceite pagamentos com cartão de crédito usando Pagar.me."
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:89
+msgid "Enable Pagar.me Credit Card"
+msgstr "Ativar Cartão de Crédito Pagar.me"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:104
+msgid "Pay with Credit Card"
+msgstr "Pagar com Cartão de Crédito"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:136
+msgid "Checkout Pagar.me"
+msgstr "Checkout do Pagar.me"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:138
+msgid "Enable checkout Pagar.me"
+msgstr "Ativar checkout Pagar.me"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:141
+msgid ""
+"When enabled opens a Pagar.me modal window to receive the customer's credit "
+"card information."
+msgstr ""
+"Quando ativado, abre uma janela modal Pagar.me para receber as informações "
+"do cartão de crédito do cliente."
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:149
+msgid "Number of Installment"
+msgstr "Número de Parcelamento"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:153
+msgid "Maximum number of installments possible with payments by credit card."
+msgstr ""
+"Número máximo de parcelas possíveis com pagamentos por cartão de crédito."
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:171
+msgid "Smallest Installment"
+msgstr "Menor Parcela"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:173
+msgid ""
+"Please enter with the value of smallest installment, Note: it not can be "
+"less than 5."
+msgstr ""
+"Por favor, entre com o valor da menor parcela, Nota: ele não pode ser "
+"inferior a 5."
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:178
+msgid "Interest rate"
+msgstr "Taxa de juros"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:180
+msgid ""
+"Please enter with the interest rate amount. Note: use 0 to not charge "
+"interest."
+msgstr ""
+"Insira com o valor da taxa de juros. Nota: use 0 para não cobrar juros."
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:185
+msgid "Free Installments"
+msgstr "Parcelas grátis"
+
+#: includes/class-wc-pagarme-credit-card-gateway.php:189
+msgid "Number of installments with interest free."
+msgstr "Número de prestações sem juros."
+
+#: includes/class-wc-pagarme-my-account.php:45
+msgid "Print Banking Ticket"
+msgstr "2ªVia Boleto"
+
+#: includes/recebedores.php:11
+msgid "Recipients"
+msgstr "Recebedores"
+
+#: includes/recebedores.php:12
+msgid "Recipient"
+msgstr "Recebedor"
+
+#: includes/recebedores.php:13
+msgid "Add new recipient"
+msgstr "Adicionar novo Recebedor"
+
+#: includes/recebedores.php:14
+msgid "No Recipent found"
+msgstr "Nenhum Recebedor encontrado"
+
+#: includes/split-produtos.php:7
+msgid "Split"
+msgstr "Divisão"
+
+#: templates/banking-ticket/checkout-instructions.php:16
+msgid ""
+"After clicking \"Place order\" you will have access to banking banking "
+"ticket which you can print and pay in your internet banking or in a lottery "
+"retailer."
+msgstr ""
+"Depois de clicar \"Finalizar Pedido\" você vai ter acesso ao seu boleto "
+"bancário o qual vai poder imprimir e pagar em seu internet banking."
+
+#: templates/banking-ticket/checkout-instructions.php:16
+msgid "Note: The order will be confirmed only after the payment approval."
+msgstr ""
+"Nota: Seu pedido sera confirmado somente depois da aprovação do pagamento."
+
+#: templates/banking-ticket/emails/html-instructions.php:15
+#: templates/banking-ticket/emails/plain-instructions.php:14
+#: templates/credit-card/emails/html-instructions.php:15
+#: templates/credit-card/emails/plain-instructions.php:14
+msgid "Payment"
+msgstr "Pagamento"
+
+#: templates/banking-ticket/emails/html-instructions.php:17
+#: templates/banking-ticket/emails/plain-instructions.php:18
+msgid ""
+"Please use the link below to view your banking ticket, you can print and pay "
+"in your internet banking or in a lottery retailer:"
+msgstr ""
+"Use o link abaixo para ver seu boleto bancário, você pode imprimir e pagar "
+"em seu banco na Internet ou em uma casa de loteria:"
+
+#: templates/banking-ticket/emails/html-instructions.php:17
+#: templates/banking-ticket/payment-instructions.php:16
+msgid "Pay the banking ticket"
+msgstr "Pagar o boleto bancário"
+
+#: templates/banking-ticket/emails/html-instructions.php:17
+#: templates/banking-ticket/emails/plain-instructions.php:26
+#: templates/banking-ticket/payment-instructions.php:16
+msgid ""
+"After we receive the banking ticket payment confirmation, your order will be "
+"processed."
+msgstr ""
+"Depois de recebermos a confirmação de pagamento do boleto bancário, a sua "
+"encomenda será processada."
+
+#: templates/banking-ticket/payment-instructions.php:16
+msgid "Please click in the following button to view your banking ticket."
+msgstr "Clique no botão a seguir para visualizar o seu boleto bancário."
+
+#: templates/banking-ticket/payment-instructions.php:16
+msgid ""
+"You can print and pay in your internet banking or in a lottery retailer."
+msgstr ""
+"Você pode imprimir e pagar em seu banco na Internet ou em uma casa de loteria"
+
+#: templates/credit-card/emails/html-instructions.php:17
+#: templates/credit-card/emails/plain-instructions.php:18
+#: templates/credit-card/payment-instructions.php:17
+msgid "Payment successfully made using %1$s credit card in %2$s."
+msgstr "Pagamento efetuado com êxito usando o cartão de crédito %1$s em %2$s."
+
+#: templates/credit-card/payment-form.php:17
+msgid "Card Holder Name"
+msgstr "Nome no Cartão"
+
+#: templates/credit-card/payment-form.php:21
+msgid "Card Number"
+msgstr "Número do Cartão"
+
+#: templates/credit-card/payment-form.php:26
+msgid "Expiry (MM/YY)"
+msgstr "Validade (MM/AA)"
+
+#: templates/credit-card/payment-form.php:27
+msgid "MM / YY"
+msgstr "MM/AA"
+
+#: templates/credit-card/payment-form.php:30
+msgid "Card Code"
+msgstr "Código Cartão"
+
+#: templates/credit-card/payment-form.php:31
+msgid "CVC"
+msgstr "Cód. Segurança"
+
+#: templates/credit-card/payment-form.php:44
+msgid "(total of %s)"
+msgstr "(total de %s)"
+
+#: templates/credit-card/payment-form.php:44
+msgid "(interest-free)"
+msgstr "(sem juros)"
+
+#: templates/credit-card/payment-form.php:47
+msgid "%1$dx of %2$s %3$s"
+msgstr "%1$dx de %2$s %3$s"
+
+#: woocommerce-pagarme.php:130
+msgid "Bank Slip Settings"
+msgstr "Configurações de Boleto Bancário"
+
+#: woocommerce-pagarme.php:132
+msgid "Credit Card Settings"
+msgstr "Configurações de Cartão de Crédito"

@@ -1,0 +1,37 @@
+/*
+Theme Name: aafbb
+Theme URI: http://www.vm50.com.br/
+Author: VM50 (Valnei Lorenzetti)
+Author URI: http://www.vm50.com.br/
+Description: Tema exclusivo para a AAFBB.
+Version: 1.0.0
+Text Domain: vm50
+*/
+
+h3 {
+    font-weight: bold !important;
+}
+table,
+.vm50_input_text {
+    width: 100%;
+}
+.vm50_input_text_60 {
+    width: 60%;
+}
+.vm50_input_text_30 {
+    width: 30%;
+}
+.vm50_input_text_10 {
+    width: 10%;
+}
+.vm50_recebedor_moldura {
+    width: auto;
+    height: auto;
+    border: 1px solid #606060;
+    border-radius: 30px;
+    margin: 30px 0 30px 15px;
+    padding: 15px;
+}
+.vm50_recebedor_alerta {
+    color: #ff0000;
+}

@@ -45,6 +45,7 @@
     $has_post_thumbnail = get_the_post_thumbnail($the_post_id);
 
     
+
 	// Title, enable, disable box in post
     // hooks in aquila theme
     // add _hide_page_title postmeta

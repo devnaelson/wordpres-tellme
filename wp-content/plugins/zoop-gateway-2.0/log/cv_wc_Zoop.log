@@ -1,0 +1,4 @@
+[2019-12-04 18:59:39] [INFO]: Sucesso na transação Dados recebidos - {"error":{"status":"Request Failed","status_code":422,"type":"processing_error","category":"server_api_error","message":"There was an error generating the boleto. The error was: Invalid value fields","reasons":["Amount is more than limit"]},"Status":{"Code":"422","Name":"Unprocessable Entity","Description":"Algum parametro est\u00e1 invalido. "}}
+
+[2019-12-05 15:47:45] [ERROR]: An error occurred on instance classes. Verify folder include cv_config.php
+

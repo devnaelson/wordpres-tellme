@@ -1,0 +1,683 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: cv-wc-zoop Admin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-10-01 19:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: cv_wc_zoop.php:74
+msgid ""
+"For the correct operation of the plugin WooCommerce - Zoop Split you need "
+"the plugin WooCommerce."
+msgstr ""
+
+#: cv_wc_zoop.php:88
+msgid ""
+"For the correct operation of the plugin WooCommerce - Zoop Split you need "
+"the plugin WooCommerce Extra Checkout Fields for Brazil."
+msgstr ""
+
+#: cv_wc_zoop.php:116
+msgid ""
+"For the correct operation of the plugin WooCommerce - Zoop Split you need "
+"enable the extension PHP CURL."
+msgstr ""
+
+#: cv_wc_zoop.php:232
+msgid "Configure"
+msgstr ""
+
+#: includes/cv_config.php:31
+msgid "Integration Config - Zoop"
+msgstr ""
+
+#: includes/cv_config.php:48
+msgid "API Keys"
+msgstr ""
+
+#: includes/cv_config.php:54
+msgid "MarketPlace ID"
+msgstr ""
+
+#: includes/cv_config.php:59
+msgid "Publishable key"
+msgstr ""
+
+#: includes/cv_config.php:64
+msgid "Seller ID"
+msgstr ""
+
+#: includes/cv_config.php:69
+msgid "Vendor pay tax"
+msgstr ""
+
+#: includes/cv_config.php:74
+msgid "Debug"
+msgstr ""
+
+#: includes/cv_vendor.php:58
+msgid "Vendors Split"
+msgstr ""
+
+#: includes/cv_vendor.php:93
+msgid ""
+"Select the Vendor that will receive extra commision.\n"
+"                        Default will not include commission on sale"
+msgstr ""
+
+#: includes/cv_vendor.php:99
+msgid "Commission value to calculate and send to selected Vendor"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:39
+msgid "Zoop"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:40
+msgid "Accept payments by credit card using the Zoop."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:41
+msgid "Proceed to payment"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:119
+msgid "General"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:124
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:126
+msgid "Enable Zoop Payment"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:130
+msgid "Title"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:132
+msgid ""
+"This controls the title for the payment method the customer sees during "
+"checkout."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:133
+msgid "Zoop Payment"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:137
+msgid "Description"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:139
+msgid "Payment method description that the customer will see on your checkout."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:140
+msgid "Please remit payment to Store Name upon pickup or delivery."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:144
+msgid "Instructions"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:146
+msgid "Instructions that will be added to the thank you page and emails."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:151 templates/credit-card/payment-form.php:105
+msgid "Installments"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:156
+msgid "Number of Installment"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:160
+msgid "Maximum number of installments possible with payments by credit card."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:178
+msgid "Smallest Installment"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:180
+msgid "Please enter with the value of smallest installment."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:185
+msgid "Interest rate"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:187
+msgid ""
+"Please enter with the interest rate amount. Note: use 0 to not charge "
+"interest."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:192
+msgid "Free Installments"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:196
+msgid "Number of installments with interest free."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:199
+msgctxt "no free installments"
+msgid "None"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:215
+msgid "Debug Log"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:217
+msgid "Enable logging"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:219
+#, php-format
+msgid "Log Zoop events, such as API requests, inside %s"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:269 includes/cv_zoop_gateway.php:785
+#: includes/frontend/adm_profile.php:238
+msgid "Name"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:270 includes/cv_zoop_gateway.php:786
+#: templates/credit-card/payment-form.php:93
+msgid "Expires"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:271 includes/cv_zoop_gateway.php:787
+msgid "Brand"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:272 includes/cv_zoop_gateway.php:788
+msgid "Last four"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:273 includes/cv_zoop_gateway.php:789
+msgid "Action"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:479
+msgid "Tax by payment"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:509
+msgid "Payment error: "
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:568
+#, php-format
+msgid "Zoop: The transaction was authorized(id = %s.)"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:577
+#, php-format
+msgid "Zoop: The bankslip is being processed(id = %s.) The bankslip URL is %s"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:581
+#, php-format
+msgid "Zoop: The transaction is being processed(id = %s.)"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:585
+#, php-format
+msgid "Zoop: The banking ticket was issued but not paid yet(id = %s.)"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:589
+#, php-format
+msgid ""
+"Zoop: The transaction was rejected by the card company or by fraud(id = %s.)"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:594
+#, php-format
+msgid ""
+"The transaction for order %s was rejected by the card company or by fraud"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:595
+msgid "Transaction failed"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:596
+#, php-format
+msgid "company or by fraud. ID %2$s."
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:603 includes/cv_zoop_ws.php:435
+#, php-format
+msgid "Zoop: The transaction was refunded/canceled (id = %s.)"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:608
+#, php-format
+msgid "The transaction for order %s refunded"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:608
+msgid "Transaction refunded"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:608
+#, php-format
+msgid "Order %1$s has been marked as refunded by Zoop. ID %2$s"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:657
+msgid "System Status &gt; Logs"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:718 includes/cv_zoop_gateway.php:801
+msgid "Zoop Cards"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:733
+msgid "Cards"
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:768
+msgid "Error: "
+msgstr ""
+
+#: includes/cv_zoop_gateway.php:825
+#, php-format
+msgid "Your bankslip is available <a href='%s' target='_blank'>here</a>"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:119
+msgid "Something went wrong. Often a required param is missing"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:126
+msgid "Not a valid API Key"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:133
+msgid "Params were right, but something failed, also used to rejected charges"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:145
+msgid "Requested item doesn't exists"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:152
+msgid "Some param is invalid"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:159
+msgid "Something went wrong on our servers"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:166
+msgid "Feature not available yet"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:172 includes/cv_zoop_ws.php:173
+msgid "Not Available"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:433
+#, php-format
+msgid "Zoop: Transaction was canceled (id = %s.)"
+msgstr ""
+
+#: includes/cv_zoop_ws.php:436
+msgid "Payment was canceled successfuly."
+msgstr ""
+
+#: includes/cv_zoop_ws.php:438
+msgid "An error has occurred. Try Again"
+msgstr ""
+
+#: includes/frontend/html-notice-missing-woocommerce.php:20
+msgid "WooCommerce Zoop"
+msgstr ""
+
+#: includes/frontend/html-notice-missing-woocommerce.php:24
+msgid "depends on the last version of WooCommerce to work!"
+msgstr ""
+
+#: includes/frontend/html-notice-missing-woocommerce.php:31
+msgid "Active WooCommerce"
+msgstr ""
+
+#: includes/frontend/html-notice-missing-woocommerce.php:38
+#: includes/frontend/html-notice-missing-woocommerce.php:44
+msgid "Install WooCommerce"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:11
+msgid "Zoop - split / Bank and recipient information"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:13
+msgid "Business data"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:17
+msgid "CPF or CNPJ"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:23
+msgid "Type"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:27
+msgid "Individual"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:28
+msgid "Business"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:34
+msgid "Business name"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:46
+msgid "Business category"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:70
+msgid "business description"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:82
+msgid "Business phone"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:96
+msgid "business email"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:108
+msgid "Business opening date"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:120
+msgid "Business address"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:124 includes/frontend/adm_profile.php:296
+msgid "Postal Code"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:136 includes/frontend/adm_profile.php:309
+msgid "Address"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:150 includes/frontend/adm_profile.php:324
+msgid "Number"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:162 includes/frontend/adm_profile.php:337
+msgid "Adjunct"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:174
+msgid "Neighborrhood"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:187 includes/frontend/adm_profile.php:365
+msgid "City"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:199 includes/frontend/adm_profile.php:378
+msgid "State"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:234
+msgid "Owner data"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:250
+msgid "Email"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:265
+msgid "Phone"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:278
+msgid "Birthdate"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:292
+msgid "Owner address"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:350
+msgid "Neighborhood"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:446
+msgid "Bank data"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:450
+msgid "Bank cod"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:461
+msgid "Only numbers"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:465
+msgid "Holder name"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:476
+msgid "Bank account holder"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:482
+msgid "Bank agency"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:493
+msgid "4 numbers no digit"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:497
+msgid "Bank account"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:508
+msgid "Only numbers with digit"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:514
+msgid "Bank CPF/CNPJ"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:526
+msgid "Recipient data"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:529
+msgid "Automatic Transfer"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:534
+msgid "Enable"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:539
+msgid "Disable"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:541
+msgid "Enable automatic tranfer"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:543
+msgid "Frequency"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:549
+msgid "Daily"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:553
+msgid "Weekly"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:557
+msgid "Monthly"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:562
+msgid "Transfer day"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:574
+msgid "Daily: use only 0"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:575
+msgid "Weekly: use 1 to 5, where 1 is monday and 5 is friday"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:576
+msgid "Monthly: use 1 to 31"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:580
+msgid "Minimum transfer value"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:592
+msgid "Documents"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:596
+msgid "Invoice or business card"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:602
+msgid "Proof of address"
+msgstr ""
+
+#: includes/frontend/adm_profile.php:608
+msgid "Document"
+msgstr ""
+
+#: includes/frontend/html-notice-missing-multivendors.php:14
+msgid "WooCommerce zoop with splits"
+msgstr ""
+
+#: includes/admin/meta.php:5
+msgid "Cancel payment"
+msgstr ""
+
+#: includes/admin/meta.php:35 includes/views/html-cards.php:132
+msgid "An error has occurred in request. Try Again"
+msgstr ""
+
+#: includes/views/html-cards.php:32
+msgid "Remove Card"
+msgstr ""
+
+#: includes/views/html-cards.php:41 includes/views/html-cards.php:48
+msgid "No cards"
+msgstr ""
+
+#: includes/views/html-cards.php:53 templates/credit-card/payment-form.php:74
+msgid "New Card"
+msgstr ""
+
+#: includes/views/html-cards.php:61 templates/credit-card/payment-form.php:85
+#: templates/credit-card/payment-form.php:86
+msgid "Card number"
+msgstr ""
+
+#: includes/views/html-cards.php:64 templates/credit-card/payment-form.php:89
+#: templates/credit-card/payment-form.php:90
+msgid "Full name"
+msgstr ""
+
+#: includes/views/html-cards.php:67 templates/credit-card/payment-form.php:95
+msgid "MM/YY"
+msgstr ""
+
+#: includes/views/html-cards.php:70 templates/credit-card/payment-form.php:97
+#: templates/credit-card/payment-form.php:99
+msgid "CVC"
+msgstr ""
+
+#: includes/views/html-cards.php:76
+msgid "Register Card"
+msgstr ""
+
+#: templates/credit-card/payment-form.php:12
+msgid "Select your payment form:"
+msgstr ""
+
+#: templates/credit-card/payment-form.php:15
+msgid "Credit card"
+msgstr ""
+
+#: templates/credit-card/payment-form.php:17
+msgid "Bank slip"
+msgstr ""
+
+#: templates/credit-card/payment-form.php:54
+msgid "Use this Card"
+msgstr ""
+
+#: templates/credit-card/payment-form.php:112
+#, php-format
+msgid "%1$dx of %2$s no tax - R$ %3$s"
+msgstr ""
+
+#: templates/credit-card/payment-form.php:121
+#, php-format
+msgid "%1$dx of %2$s with tax %3$s%%  - R$ %4$s"
+msgstr ""
+
+#: templates/credit-card/emails/html-instructions.php:12
+#: templates/credit-card/emails/plain-instructions.php:11
+msgid "Payment"
+msgstr ""
+
+#: templates/credit-card/emails/html-instructions.php:14
+#: templates/credit-card/emails/plain-instructions.php:15
+#, php-format
+msgid "Payment successfully made using %1$s credit card in %2$s."
+msgstr ""
+
+#. Name of the plugin
+msgid "cv-wc-zoop Admin"
+msgstr ""
+
+#. Description of the plugin
+msgid "Plugin para cadastrar recebedores e regras de recebimento na zoop"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "http://www.cassiovidal.com"
+msgstr ""
+
+#. Author of the plugin
+msgid "Cassio Vidal"
+msgstr ""
